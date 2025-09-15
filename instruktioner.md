@@ -36,19 +36,19 @@ När användaren klickar på en flagga ska de navigeras hit.
 
 Följande information om landet ska visas:
 
-- [ ] Flagga
+- [x] Flagga
 
-- [ ] Namn
+- [x] Namn
 
-- [ ] Valuta
+- [x] Valuta
 
-- [ ] Befolkning
+- [x] Befolkning
 
-- [ ] En länk till landets plats i Google Maps (finns i API-fältet).
+- [x] En länk till landets plats i Google Maps (finns i API-fältet).
 
-- [ ] Det ska även finnas en knapp för att spara landet.
+- [x] Det ska även finnas en knapp för att spara landet.
 
-- [ ] När man sparar ett land ska det läggas i en samling som lagras i localStorage.
+- [x] När man sparar ett land ska det läggas i en samling som lagras i localStorage.
 
 
 ## :earth_asia: collection – Sparade länder
