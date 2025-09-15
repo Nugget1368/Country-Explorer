@@ -33,9 +33,7 @@ const Country = () => {
                         <p>Capital: {country[0].capital}</p>
                         <p>Population: {country[0].population} people</p>
                         <label htmlFor={`${country[0].name.common}-map`}><a href={country[0].maps?.googleMaps} id={`${country[0].name.common}-map`} target="_blank">Find it on the map!</a></label>
-                        <footer>
-                            <button className="btn" onClick={saveCountry}>Save</button>
-                        </footer>
+                        <button className="btn" onClick={saveCountry}>Save</button>
                     </article>
                 </> :
                 status === "loading" ?
