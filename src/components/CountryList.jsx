@@ -10,7 +10,7 @@ const CountryList = () => {
             {
                 countries && countries.map((country) => (
                     <li className={styles.card} key={country.name.common}>
-                        <Link to={`/country/${country.name.common}`}>
+                        <Link to={`/countries/${country.name.common}`}>
                         {
                             country.flags?.png ? <img src={country.flags.png} alt={country.flags.alt} /> : <img src="https://placehold.co/600x400" alt="Flag not found." />
                         }
