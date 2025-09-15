@@ -10,7 +10,7 @@ export const fetchCountry = createAsyncThunk(
             return response.json();
         } catch (error) {
             console.log(error);
-            return [];
+            return null;
         }
     }
 );

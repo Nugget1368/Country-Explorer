@@ -10,10 +10,13 @@ const Country = () => {
     }, [])
 
     let { country, status, error } = useSelector(state => state.country)
-    console.log(country[0]);
+    console.log(country);
 
     return (
+        
         <section>
+            {country ?
+            <>
             <header>
                 <img src={country[0].flags.png} alt={country[0].flags.alt} />
                 <h2>{country[0].name.common}</h2>
@@ -21,6 +24,8 @@ const Country = () => {
             <article>
 
             </article>
+            </> : null
+            }
         </section>
     )
 }
