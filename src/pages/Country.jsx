@@ -2,18 +2,18 @@ import { useParams } from "react-router-dom"
 import { useEffect } from "react";
 import { fetchCountry } from "../features/country/countrySlice.js";
 import { useDispatch, useSelector } from "react-redux";
+import { MyLocalStorage } from "../features/localStorage/localStorage.js";
 const Country = () => {
     let params = useParams()
     const dispatch = useDispatch()
+    let { country, status, error } = useSelector(state => state.country)
     useEffect(() => {
         dispatch(fetchCountry(params.name))
     }, [params.name, dispatch])
-    let { country, status, error } = useSelector(state => state.country)
 
     const saveCountry = () => {
-        let savedCountries = JSON.parse(localStorage.getItem("savedCountries")) || []
-        savedCountries.push(country[0])
-        localStorage.setItem("savedCountries", JSON.stringify(savedCountries))
+        MyLocalStorage.saveCountry(country[0]);
+        alert("Country saved!");
     }
 
     return (
