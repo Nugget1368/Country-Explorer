@@ -1,7 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import regionReducer from "../features/region/regionSlice.js";
 
 const store = configureStore({
-    reducer: {},
+    reducer: {
+        region: regionReducer
+    },
 });
 
 export default store;
