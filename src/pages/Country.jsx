@@ -8,18 +8,27 @@ const Country = () => {
     useEffect(() => {
         dispatch(fetchCountry(params.name))
     }, [params.name, dispatch])
-
     let { country, status, error } = useSelector(state => state.country)
+
+
 
     return (
         <section>
             {status === "succeeded" && country ?
                 <>
                     <header>
-                        <img src={country[0].flags.png} alt={country[0].flags.alt} />
-                        <h2>{country[0].name.common}</h2>
+                        <img src={country[0].flags?.png} alt={country[0].flags?.alt} />
+                        <h2>{country[0].name?.common}</h2>
                     </header>
                     <article>
+                        <p>Currencies: {
+                            Object.keys(country[0].currencies).map((currency) => (
+                                <span key={currency}>{country[0].currencies[currency].name} ({country[0].currencies[currency].symbol})</span>
+                            ))
+                        }</p>
+                        <p>Capital: {country[0].capital}</p>
+                        <p>Population: {country[0].population} people</p>
+                        <label htmlFor={`${country[0].name.common}-map`}><a href={country[0].maps?.googleMaps} id={`${country[0].name.common}-map`} target="_blank">Find it on the map!</a></label>
 
                     </article>
                 </> :
