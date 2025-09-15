@@ -29,7 +29,7 @@ Du ska bygga en Country Explorer i React som använder React Context eller Redux
 
 - [x] Sidan ska visa flaggor för alla länder i den valda regionen.
 
-- [ ] Varje flagga ska vara klickbar och leda vidare till en detaljsida för landet.
+- [x] Varje flagga ska vara klickbar och leda vidare till en detaljsida för landet.
 
 ### :earth_asia: countries/:countryName – Landdetaljer
 När användaren klickar på en flagga ska de navigeras hit.

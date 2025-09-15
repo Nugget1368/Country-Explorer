@@ -10,26 +10,24 @@ const Country = () => {
     }, [params.name, dispatch])
 
     let { country, status, error } = useSelector(state => state.country)
-    console.log(country);
 
     return (
-        
         <section>
             {status === "succeeded" && country ?
-            <>
-            <header>
-                <img src={country[0].flags.png} alt={country[0].flags.alt} />
-                <h2>{country[0].name.common}</h2>
-            </header>
-            <article>
+                <>
+                    <header>
+                        <img src={country[0].flags.png} alt={country[0].flags.alt} />
+                        <h2>{country[0].name.common}</h2>
+                    </header>
+                    <article>
 
-            </article>
-            </> :
-            status === "loading" ?
-            <h3>Loading...</h3> :
-            status === "failed" ?
-            <h3>{error}</h3> :
-            null
+                    </article>
+                </> :
+                status === "loading" ?
+                    <h3>Loading...</h3> :
+                    status === "failed" ?
+                        <h3>{error}</h3> :
+                        <h3>Country not found...</h3>
             }
         </section>
     )
