@@ -23,11 +23,11 @@ Du ska bygga en Country Explorer i React som använder React Context eller Redux
 
 
 ## :earth_asia: countries – Välj region och se länder
-- [ ] Användaren ska kunna välja en av följande regioner: Europe, Asia, Oceania, Americas, Africa.
+- [x] Användaren ska kunna välja en av följande regioner: Europe, Asia, Oceania, Americas, Africa.
 
-- [ ] När en region väljs ska applikationen anropa API:et och hämta samtliga länder i regionen.
+- [x] När en region väljs ska applikationen anropa API:et och hämta samtliga länder i regionen.
 
-- [ ] Sidan ska visa flaggor för alla länder i den valda regionen.
+- [x] Sidan ska visa flaggor för alla länder i den valda regionen.
 
 - [ ] Varje flagga ska vara klickbar och leda vidare till en detaljsida för landet.
 

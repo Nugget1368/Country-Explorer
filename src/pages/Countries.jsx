@@ -1,6 +1,7 @@
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchRegion } from '../features/region/regionSlice.js'
+import CountryList from '../components/CountryList'
+
 
 const Countries = () => {
     const { countries, status, error } = useSelector(state => state.region)
@@ -10,7 +11,6 @@ const Countries = () => {
         if(!countries.some(country => country.region === region.charAt(0).toUpperCase() + region.slice(1)))
         {
             dispatch(fetchRegion(region))
-            console.log(countries);
         }
     }
 
@@ -28,12 +28,13 @@ const Countries = () => {
                         <button onClick={() => handleClick('america')} className='btn'>America</button>
                         <button onClick={() => handleClick('oceania')} className='btn'>Oceania</button>
                     </div>
-                    <ul>
-                        {countries.length > 0 && countries.map(country => (
-                            <li key={country.name.common}>{country.name.common}</li>
-                        ))}
-                    </ul>
                 </article>
+            </section>
+            <section>
+                {status === "loading" ? <h3>Loading...</h3> : 
+                status === "succeeded" ? <CountryList /> :
+                status === "failed" ? <h3>{error}</h3> : null
+                }
             </section>
         </>
     )
