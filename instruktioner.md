@@ -6,9 +6,9 @@ Du ska bygga en Country Explorer i React som använder React Context eller Redux
 
 ## :computer: Backend
 
-- [ ] Store
-- [ ] Redux implementation
-- [ ] React-Router
+- [x] Store
+- [x] Redux implementation
+- [x] React-Router
 
 ## :earth_asia: Startsida
 - [ ] Visa en välkomstsida med fyra knappar:
