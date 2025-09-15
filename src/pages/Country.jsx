@@ -7,7 +7,7 @@ const Country = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchCountry(params.name))
-    }, [])
+    }, [params.name, dispatch])
 
     let { country, status, error } = useSelector(state => state.country)
     console.log(country);
@@ -15,7 +15,7 @@ const Country = () => {
     return (
         
         <section>
-            {country ?
+            {status === "succeeded" && country ?
             <>
             <header>
                 <img src={country[0].flags.png} alt={country[0].flags.alt} />
@@ -24,7 +24,12 @@ const Country = () => {
             <article>
 
             </article>
-            </> : null
+            </> :
+            status === "loading" ?
+            <h3>Loading...</h3> :
+            status === "failed" ?
+            <h3>{error}</h3> :
+            null
             }
         </section>
     )
