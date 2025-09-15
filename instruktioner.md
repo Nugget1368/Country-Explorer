@@ -48,7 +48,7 @@ Följande information om landet ska visas:
 
 - [x] Det ska även finnas en knapp för att spara landet.
 
-- [ ] När man sparar ett land ska det läggas i en samling som lagras i localStorage.
+- [x] När man sparar ett land ska det läggas i en samling som lagras i localStorage.
 
 
 ## :earth_asia: collection – Sparade länder
