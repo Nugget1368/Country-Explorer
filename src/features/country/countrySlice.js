@@ -1,42 +1,42 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const fetchRegion = createAsyncThunk(
-    "region/fetchRegion",
-    async (region) => {
+export const fetchCountry = createAsyncThunk(
+    "country/fetchCountry",
+    async (country) => {
         try {
             const response = await fetch(
-                `https://restcountries.com/v3.1/region/${region}`
+                `https://restcountries.com/v3.1/name/${country}`
             );
             return response.json();
         } catch (error) {
             console.log(error);
-            return [];
+            return null;
         }
     }
 );
 
-const regionSlice = createSlice({
-    name: "region",
+const countrySlice = createSlice({
+    name: "country",
     initialState: {
-        countries: [],
+        country: null,
         status: "idle",
         error: null,
     },
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchRegion.pending, (state) => {
+            .addCase(fetchCountry.pending, (state) => {
                 state.status = "loading";
             })
-            .addCase(fetchRegion.fulfilled, (state, action) => {
+            .addCase(fetchCountry.fulfilled, (state, action) => {
                 state.status = "succeeded";
-                state.countries = action.payload;
+                state.country = action.payload;
             })
-            .addCase(fetchRegion.rejected, (state, action) => {
+            .addCase(fetchCountry.rejected, (state, action) => {
                 state.status = "failed";
                 state.error = action.error.message;
             });
     },
 });
 
-export default regionSlice.reducer;
+export default countrySlice.reducer;
