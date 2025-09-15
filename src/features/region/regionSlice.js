@@ -18,7 +18,7 @@ export const fetchRegion = createAsyncThunk(
 const regionSlice = createSlice({
     name: "region",
     initialState: {
-        regions: [],
+        countries: [],
         status: "idle",
         error: null,
     },
@@ -30,7 +30,8 @@ const regionSlice = createSlice({
             })
             .addCase(fetchRegion.fulfilled, (state, action) => {
                 state.status = "succeeded";
-                state.regions = action.payload;
+                state.countries = action.payload;
+                console.log(state.countries);
             })
             .addCase(fetchRegion.rejected, (state, action) => {
                 state.status = "failed";

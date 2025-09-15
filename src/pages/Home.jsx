@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 
 const Home = () => {
     return (
@@ -8,6 +9,8 @@ const Home = () => {
             <article>
                 <nav>
                     {/* <Link>Insert Link to pages</Link> */}
+                    {/* <Link className="btn" to="/countries">Study countries</Link> */}
+                    <Link to="/countries"><p>Study countries</p></Link>
                 </nav>
             </article>
         </section>

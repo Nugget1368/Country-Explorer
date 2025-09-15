@@ -13,7 +13,7 @@ Du ska bygga en Country Explorer i React som använder React Context eller Redux
 ## :earth_asia: Startsida
 - [ ] Visa en välkomstsida med fyra knappar:
 
-    - [ ] "Study countries" – navigerar till /countries.
+    - [x] "Study countries" – navigerar till /countries.
 
     - [ ] "Collection" – navigerar till /collection där användaren kan se sina sparade länder.
 

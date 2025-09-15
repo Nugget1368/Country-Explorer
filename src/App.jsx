@@ -1,6 +1,7 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router'
 import Home from './pages/Home'
+import Countries from './pages/Countries'
 
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='*' element={<h1>404 Not Found Friend...</h1>}></Route>
+        <Route path='/countries' element={<Countries />} />
       </Routes>
     </Router>
   )
