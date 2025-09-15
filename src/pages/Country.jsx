@@ -10,7 +10,11 @@ const Country = () => {
     }, [params.name, dispatch])
     let { country, status, error } = useSelector(state => state.country)
 
-
+    const saveCountry = () => {
+        let savedCountries = JSON.parse(localStorage.getItem("savedCountries")) || []
+        savedCountries.push(country[0])
+        localStorage.setItem("savedCountries", JSON.stringify(savedCountries))
+    }
 
     return (
         <section>
@@ -29,7 +33,9 @@ const Country = () => {
                         <p>Capital: {country[0].capital}</p>
                         <p>Population: {country[0].population} people</p>
                         <label htmlFor={`${country[0].name.common}-map`}><a href={country[0].maps?.googleMaps} id={`${country[0].name.common}-map`} target="_blank">Find it on the map!</a></label>
-
+                        <footer>
+                            <button className="btn" onClick={saveCountry}>Save</button>
+                        </footer>
                     </article>
                 </> :
                 status === "loading" ?
