@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styles from './CountryList.module.css'
 
-const CountryList = () => {
-    let { countries } = useSelector((state) => state.region)
+const CountryList = ({countries}) => {
+    // let { countries } = useSelector((state) => state.region)
     return (
         <ul>
             {
