@@ -1,10 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// TODO: Move quizSlice into regionSlice?
+// RegionSlice would have som extra params in initialstate, and also have extra reducers
+// QuizSlist would only use 1 Slice instead of 2
+
 export const quizSlice = createSlice({
     name: "quiz",
     initialState: {
         userName: "",
-        regionSelected: "",
+        regionSelected: "", // DELETE THIS?
         regions: ["europe", "africa", "asia", "america", "oceania"],
         score: 0,
         quizStatus: "idle",

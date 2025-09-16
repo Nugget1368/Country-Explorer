@@ -1,8 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setUserName, setRegionSelected, setQuizStatusStart } from "../../features/quiz/quizSlice.js";
+import { setUserName, setQuizStatusStart } from "../../features/quiz/quizSlice.js";
+import { fetchRegion } from "../../features/region/regionSlice.js";
+import { useState } from "react";
 const UserForm = () => {
     const { regions } = useSelector(state => state.quiz);
+    const [region, setRegion] = useState("");
     const dispatch = useDispatch();
+
+    const startQuiz = () => {
+        dispatch(fetchRegion(region));
+        dispatch(setQuizStatusStart());
+    }
+
     return (
         <article>
             <div>
@@ -14,13 +23,13 @@ const UserForm = () => {
                 {regions.map((r) => {
                     return (
                         <div key={r}>
-                            <input type="radio" name="region" id={r} value={r} onChange={(e) => dispatch(setRegionSelected(e.target.value))} />
+                            <input type="radio" name="region" id={r} value={r} onChange={(e) => setRegion(e.target.value)} />
                             <label htmlFor={r}>{r.charAt(0).toUpperCase() + r.slice(1)}</label>
                         </div>
                     )
                 })}
             </div>
-            <button className="btn" onClick={() => dispatch(setQuizStatusStart())}>Start</button>
+            <button className="btn" onClick={() => startQuiz()}>Start</button>
         </article>
     )
 }
