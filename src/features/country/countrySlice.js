@@ -5,7 +5,7 @@ export const fetchCountry = createAsyncThunk(
     async (country) => {
         try {
             const response = await fetch(
-                `https://restcountries.com/v3.1/name/${country}`
+                `https://restcountries.com/v3.1/name/${country}?fields=name,capital,currencies,flags,population,region,maps`
             );
             return response.json();
         } catch (error) {
@@ -36,6 +36,7 @@ const countrySlice = createSlice({
             })
             .addCase(fetchCountry.fulfilled, (state, action) => {
                 state.status = "succeeded";
+                console.log(action.payload);
                 state.country = action.payload[0];
             })
             .addCase(fetchCountry.rejected, (state, action) => {
