@@ -32,7 +32,7 @@ const Countries = () => {
             </section>
             <section>
                 {status === "loading" ? <h3>Loading...</h3> : 
-                status === "succeeded" ? <CountryList /> :
+                status === "succeeded" ? <CountryList countries={countries} /> :
                 status === "failed" ? <h3>{error}</h3> : null
                 }
             </section>
