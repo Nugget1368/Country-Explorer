@@ -5,7 +5,7 @@ export const fetchCountry = createAsyncThunk(
     async (country) => {
         try {
             const response = await fetch(
-                `https://restcountries.com/v3.1/name/${country}`
+                `https://restcountries.com/v3.1/name/${country}?fields=name,capital,currencies,flags,population,region,maps`
             );
             return response.json();
         } catch (error) {
