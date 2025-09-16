@@ -97,7 +97,7 @@ Här ska användaren kunna se leaderboards för varje region.
 
 ### Felhantering
 - [x] Borde inte kunna spara samma land 2 gånger
-- [ ] Är ett land redan sparat borde användaren istället kunna "ospara" (ta bort) landet.
+- [x] Är ett land redan sparat borde användaren istället kunna "ospara" (ta bort) landet.
 
 ### Nice to have
 
