@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { MyLocalStorage } from '../features/localStorage/localStorage.js';
-import { CountryList } from '../components/CountryList'
+import CountryList from '../components/CountryList'
 
 const Collection = () => {
 

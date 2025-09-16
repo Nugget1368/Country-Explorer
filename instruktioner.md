@@ -15,7 +15,7 @@ Du ska bygga en Country Explorer i React som använder React Context eller Redux
 
     - [x] "Study countries" – navigerar till /countries.
 
-    - [ ] "Collection" – navigerar till /collection där användaren kan se sina sparade länder.
+    - [x] "Collection" – navigerar till /collection där användaren kan se sina sparade länder.
 
     - [ ] "Quiz" – navigerar till /quiz.
 
@@ -54,9 +54,9 @@ Följande information om landet ska visas:
 ## :earth_asia: collection – Sparade länder
 Här ska användaren kunna se en lista/grid med alla länder de har sparat.
 
-- [ ] Varje sparat land ska visa minst flagga och namn.
+- [x] Varje sparat land ska visa minst flagga och namn.
 
-- [ ] Om användaren klickar på ett sparat land ska de komma tillbaka till landets detaljsida (/countries/:countryName).
+- [x] Om användaren klickar på ett sparat land ska de komma tillbaka till landets detaljsida (/countries/:countryName).
 
 
 ## :love_letter: quiz – Quiz (VG-krav)
@@ -92,3 +92,12 @@ Här ska användaren kunna se leaderboards för varje region.
 - [ ] Poäng (antal rätt)
 
 - [ ] Informationen ska hämtas från localStorage.
+
+## :exclamation: Övriga fel och Nice to have
+
+### Felhantering
+- [ ] Borde inte kunna spara samma land 2 gånger, är ett land redan sparat borde användaren istället kunna "ospara" (ta bort) landet.
+
+### Nice to have
+
+- [ ] Spara redan hämtade regioner i Sessionstorage för att slippa ladda om dem varje gång.
