@@ -1,31 +1,21 @@
-import { useState } from "react"
-
+import UserForm from "../components/quiz/UserForm"
+import { useSelector } from "react-redux";
 const Quiz = () => {
-    const regions = ['europe', 'africa', 'asia', 'america', 'oceania'];
-    const [region, setRegion] = useState("");
-    const [userName, setUserName] = useState("");
+    const {quizStatus} = useSelector(state => state.quiz);
+    /* UserForm behöver ha en funktion som triggar nästa steg */
+
   return (
     <section>
         <header>
             <h2>World Map Quiz</h2>
         </header>
-        <article>
-            <div>
-                <label htmlFor="name">Name</label>
-                <input type="text" name="name" id="name" onChange={(e) => setUserName(e.target.value)} />
-            </div>
-            <div>
-                <label htmlFor="region">Pick a region</label>
-                {regions.map((r) =>{
-                    return (
-                        <div key={r}>
-                            <input type="radio" name="region" id={r} value={r} onChange={(e) => setRegion(e.target.value)}/>
-                            <label htmlFor={r}>{r.charAt(0).toUpperCase() + r.slice(1)}</label>
-                        </div>
-                    )
-                })}
-            </div>
-        </article>
+        {
+            quizStatus === "idle" ? <UserForm />
+            : quizStatus === "start" ? <h3>Start</h3> 
+            : quizStatus === "finished" ? <h3>Finished</h3>
+            : null
+        }
+        
     </section>
   )
 }

@@ -64,7 +64,7 @@ När användaren navigerar hit ska de först få:
 
 - [x] Mata in ett användarnamn.
 
-- [ ] Välja en region (Europe, Asia, Oceania, Americas, Africa).
+- [x] Välja en region (Europe, Asia, Oceania, Americas, Africa).
 
 - [ ] När detta är gjort startar quizet:
 
@@ -79,6 +79,15 @@ När användaren navigerar hit ska de först få:
 - [ ] Efter alla 15 frågor visas resultatet (antal rätt).
 
 - [ ] Resultatet ska sparas i localStorage tillsammans med användarnamnet och regionen.
+
+### Utförande
+
+Skapa 3 komponenter:
+- Formulär med användaruppgifter
+- Frågelista med Frågor
+- Resultat
+
+Växla mellan dessa i Quix.jsx.
 
 ## :love_letter: leaderboard – Leaderboard (VG-krav)
 Här ska användaren kunna se leaderboards för varje region.
