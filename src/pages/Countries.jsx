@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchRegion } from '../features/region/regionSlice.js'
-import CountryList from '../components/CountryList'
+import { fetchRegion, setCountries } from '../features/region/regionSlice.js'
 import { MySessionStorage } from '../features/localStorage/storage.js'
-import { setCountries } from '../features/region/regionSlice.js'
 import { useEffect, useState } from 'react'
+import CountryList from '../components/CountryList'
 
 
 const Countries = () => {
@@ -15,13 +14,13 @@ const Countries = () => {
     const handleClick = async (_region) => {
         setRegion(_region);
         //Get countries from Sessionstorage
-        const localCountries = MySessionStorage.getRegion(_region);
+        const localCountries = MySessionStorage.getFromStorage(_region);
         //Fetch Countries from API || Set countries from Sessionstorage
         localCountries.length === 0 ? dispatch(fetchRegion(_region)) : dispatch(setCountries(localCountries));
     }
     
     useEffect(() => {
-        MySessionStorage.saveRegion(region, countries);
+        MySessionStorage.saveToStorage(region, countries);
     }, [countries]);
 
     return (

@@ -15,14 +15,14 @@ export class MyLocalStorage {
 }
 
 export class MySessionStorage {
-    static getRegion = (regionName) => {
-        let region = JSON.parse(sessionStorage.getItem(regionName));
+    static getFromStorage = (storageName) => {
+        let region = JSON.parse(sessionStorage.getItem(storageName));
         return region || [];
     };
 
-    static saveRegion = (regionName, countries) => {
-        if (!sessionStorage.getItem(regionName)) {
-            sessionStorage.setItem(regionName, JSON.stringify(countries));
+    static saveToStorage = (storageName, arr) => {
+        if (!sessionStorage.getItem(storageName)) {
+            sessionStorage.setItem(storageName, JSON.stringify(arr));
         }
     };
 }
