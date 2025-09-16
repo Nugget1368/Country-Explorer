@@ -89,6 +89,8 @@ Skapa 3 komponenter:
 
 Växla mellan dessa i Quix.jsx.
 
+**Att göra imorgon**: Slå ihop `QuizSlice.js` med `regionSlice.js`. `RegionSlice.js` kan ha de extra states och reducers, samtidigt som `QuizList.jsx` skulle slippa importera data från två olika slices.
+
 ## :love_letter: leaderboard – Leaderboard (VG-krav)
 Här ska användaren kunna se leaderboards för varje region.
 
