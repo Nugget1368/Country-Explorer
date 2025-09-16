@@ -62,7 +62,7 @@ Här ska användaren kunna se en lista/grid med alla länder de har sparat.
 ## :love_letter: quiz – Quiz (VG-krav)
 När användaren navigerar hit ska de först få:
 
-- [ ] Mata in ett användarnamn.
+- [x] Mata in ett användarnamn.
 
 - [ ] Välja en region (Europe, Asia, Oceania, Americas, Africa).
 

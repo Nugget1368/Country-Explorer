@@ -1,6 +1,9 @@
+import { useState } from "react"
+
 const Quiz = () => {
     const regions = ['europe', 'africa', 'asia', 'america', 'oceania'];
-
+    const [region, setRegion] = useState("");
+    const [userName, setUserName] = useState("");
   return (
     <section>
         <header>
@@ -9,15 +12,15 @@ const Quiz = () => {
         <article>
             <div>
                 <label htmlFor="name">Name</label>
-                <input type="text" name="name" id="name" />
+                <input type="text" name="name" id="name" onChange={(e) => setUserName(e.target.value)} />
             </div>
             <div>
                 <label htmlFor="region">Pick a region</label>
-                {regions.map((region) =>{
+                {regions.map((r) =>{
                     return (
-                        <div key={region}>
-                            <input type="radio" name="region" id={region} value={region} />
-                            <label htmlFor={region}>{region.charAt(0).toUpperCase() + region.slice(1)}</label>
+                        <div key={r}>
+                            <input type="radio" name="region" id={r} value={r} onChange={(e) => setRegion(e.target.value)}/>
+                            <label htmlFor={r}>{r.charAt(0).toUpperCase() + r.slice(1)}</label>
                         </div>
                     )
                 })}
