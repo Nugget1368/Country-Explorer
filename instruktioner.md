@@ -100,4 +100,4 @@ Här ska användaren kunna se leaderboards för varje region.
 
 ### Nice to have
 
-- [ ] Spara redan hämtade regioner i Sessionstorage för att slippa ladda om dem varje gång.
+- [x] Spara redan hämtade regioner i Sessionstorage för att slippa ladda om dem varje gång.
