@@ -8,9 +8,15 @@ export class MyLocalStorage {
 
     static saveCountry = (country) => {
         let savedCountries = this.getSavedCountries();
-        savedCountries.push(country);
-        localStorage.setItem(SAVED_COUNTRIES_KEY, JSON.stringify(savedCountries));
-        return true;
+        let countryExists = savedCountries.find((c) => c.name.common === country.name.common);
+        if (countryExists) {
+            return false;
+        }
+        else {
+            savedCountries.push(country);
+            localStorage.setItem(SAVED_COUNTRIES_KEY, JSON.stringify(savedCountries));
+            return true;
+        }
     };
 }
 

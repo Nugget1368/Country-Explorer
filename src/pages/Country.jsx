@@ -12,8 +12,8 @@ const Country = () => {
     }, [params.name, dispatch])
 
     const saveCountry = () => {
-        MyLocalStorage.saveCountry(country[0]);
-        alert("Country saved!");
+        let request = MyLocalStorage.saveCountry(country[0]);
+        request ? alert("Country saved!") : alert("Country already exists in collection.");
     }
 
     return (
