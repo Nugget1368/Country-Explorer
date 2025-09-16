@@ -3,6 +3,7 @@ import './App.css'
 import Home from './pages/Home'
 import Countries from './pages/Countries'
 import Country from './pages/Country'
+import Collection from './pages/Collection'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/countries' element={<Countries />} />
         <Route path='/countries/:name' element={<Country />} />
+        <Route path='/collection' element={<Collection />} />
         <Route path='*' element={<h1>404 not found friend....</h1>} />
       </Routes>
     </Router>
