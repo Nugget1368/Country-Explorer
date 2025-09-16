@@ -22,7 +22,13 @@ const countrySlice = createSlice({
         status: "idle",
         error: null,
     },
-    reducers: {},
+    reducers: {
+        setCountry(state, action) {
+            state.status = "loading";
+            state.country = action.payload
+            state.status = "succeeded";
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchCountry.pending, (state) => {
@@ -30,7 +36,7 @@ const countrySlice = createSlice({
             })
             .addCase(fetchCountry.fulfilled, (state, action) => {
                 state.status = "succeeded";
-                state.country = action.payload;
+                state.country = action.payload[0];
             })
             .addCase(fetchCountry.rejected, (state, action) => {
                 state.status = "failed";
@@ -38,5 +44,5 @@ const countrySlice = createSlice({
             });
     },
 });
-
+export const { setCountry } = countrySlice.actions
 export default countrySlice.reducer;

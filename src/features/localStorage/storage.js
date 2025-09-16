@@ -8,8 +8,27 @@ export class MyLocalStorage {
 
     static saveCountry = (country) => {
         let savedCountries = this.getSavedCountries();
-        savedCountries.push(country);
-        localStorage.setItem(SAVED_COUNTRIES_KEY, JSON.stringify(savedCountries));
+        let countryExists = savedCountries.find((c) => c.name.common === country.name.common);
+        if (countryExists) {
+            return false;
+        }
+        else {
+            savedCountries.push(country);
+            localStorage.setItem(SAVED_COUNTRIES_KEY, JSON.stringify(savedCountries));
+            return true;
+        }
+    };
+
+    static getCountry = (name) => {
+        let savedCountries = this.getSavedCountries();
+        let country = savedCountries.find((c) => c.name.common === name);
+        return country || false;
+    };
+
+    static removeCountry = (name) => {
+        let savedCountries = this.getSavedCountries();
+        let newList = savedCountries.filter((c) => c.name.common !== name);
+        localStorage.setItem(SAVED_COUNTRIES_KEY, JSON.stringify(newList));
         return true;
     };
 }

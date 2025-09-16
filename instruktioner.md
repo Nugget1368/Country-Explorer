@@ -96,7 +96,8 @@ Här ska användaren kunna se leaderboards för varje region.
 ## :exclamation: Övriga fel och Nice to have
 
 ### Felhantering
-- [ ] Borde inte kunna spara samma land 2 gånger, är ett land redan sparat borde användaren istället kunna "ospara" (ta bort) landet.
+- [x] Borde inte kunna spara samma land 2 gånger
+- [x] Är ett land redan sparat borde användaren istället kunna "ospara" (ta bort) landet.
 
 ### Nice to have
 
