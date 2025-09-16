@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import { useEffect } from "react";
 import { fetchCountry } from "../features/country/countrySlice.js";
 import { useDispatch, useSelector } from "react-redux";
-import { MyLocalStorage } from "../features/localStorage/localStorage.js";
+import { MyLocalStorage } from "../features/localStorage/storage.js";
 const Country = () => {
     let params = useParams()
     const dispatch = useDispatch()

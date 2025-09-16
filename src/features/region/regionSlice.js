@@ -22,7 +22,13 @@ const regionSlice = createSlice({
         status: "idle",
         error: null,
     },
-    reducers: {},
+    reducers: {
+        setCountries: (state, action) => {
+            state.status = "loading";
+            state.countries = action.payload;
+            state.status = "succeeded";
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchRegion.pending, (state) => {
@@ -39,4 +45,5 @@ const regionSlice = createSlice({
     },
 });
 
+export const { setCountries } = regionSlice.actions
 export default regionSlice.reducer;
