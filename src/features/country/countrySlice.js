@@ -36,7 +36,6 @@ const countrySlice = createSlice({
             })
             .addCase(fetchCountry.fulfilled, (state, action) => {
                 state.status = "succeeded";
-                console.log(action.payload);
                 state.country = action.payload[0];
             })
             .addCase(fetchCountry.rejected, (state, action) => {
