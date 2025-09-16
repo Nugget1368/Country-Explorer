@@ -4,11 +4,12 @@ import CountryList from '../components/CountryList'
 
 
 const Countries = () => {
-    const { countries, status, error } = useSelector(state => state.region)
-    const dispatch = useDispatch()
+    const { countries, status, error } = useSelector(state => state.region);
+    const dispatch = useDispatch();
+    const regions = ['europe', 'africa', 'asia', 'america', 'oceania'];
     
     const handleClick = async (region) => {
-        if(!countries.some(country => country.region === region.charAt(0).toUpperCase() + region.slice(1)))
+        if(!countries.some(country => country.region === region))
         {
             dispatch(fetchRegion(region))
         }
@@ -22,11 +23,7 @@ const Countries = () => {
                 </header>
                 <article>
                     <div>
-                        <button onClick={() => handleClick('europe')} className='btn'>Europe</button>
-                        <button onClick={() => handleClick('africa')} className='btn'>Africa</button>
-                        <button onClick={() => handleClick('asia')} className='btn'>Asia</button>
-                        <button onClick={() => handleClick('america')} className='btn'>America</button>
-                        <button onClick={() => handleClick('oceania')} className='btn'>Oceania</button>
+                        {regions.map(region => <button key={region} onClick={() => handleClick(region)} className='btn'>{region.charAt(0).toUpperCase() + region.slice(1)}</button>)}
                     </div>
                 </article>
             </section>
