@@ -9,10 +9,10 @@ const QuizResult = () => {
         return Math.floor((score / questions) * 100) + "%";
     };
 
-    // useEffect(() => {
-    //Save to localStorage
-    MyLocalStorage.saveLeaderboard({ userName, region, score });
-    // }, []);
+    useEffect(() => {
+        // Save to localStorage
+        MyLocalStorage.saveLeaderboard({ userName, region, score });
+    }, []);
 
     return (
         <section>

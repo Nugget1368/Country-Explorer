@@ -50,17 +50,31 @@ export class MyLocalStorage {
             else {
                 board.players.push({ userName, score });
             }
+            board.players = this.sortPlayers(board.players);
+            localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+            return true;
         }
-        else {
-            leaderboard.push({ region, players: [{ userName, score }] });
-        }
+        leaderboard.push({ region, players: [{ userName, score }] });
         localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
         return true;
     }
 
+    static sortPlayers = (players) => {
+        players.sort((a, b) => b.score - a.score);
+        return players.length > 5 ? players.slice(0, 5) : players;
+    }
+
     static getLeaderboard = (region) => {
         let leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
-        return leaderboard.find(board => board.region === region) || [];
+        if (!leaderboard) {
+            return [];
+        }
+        let board = leaderboard.find(board => board.region === region);
+        if(board){
+            board.players = this.sortPlayers(board.players);
+            return board;
+        }
+        return [];
     }
 }
 
