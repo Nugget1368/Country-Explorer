@@ -70,7 +70,7 @@ När detta är gjort startar quizet:
 
 - [ ] 15 frågor per quiz.
 
-- [ ] Frågorna slumpas fram från regionens länder.
+- [x] Frågorna slumpas fram från regionens länder.
 
 - [x] För varje fråga visas en flagga, och användaren ska skriva in landets namn i ett input-fält.
 
