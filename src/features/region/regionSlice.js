@@ -52,6 +52,9 @@ const regionSlice = createSlice({
         updateScore: (state) => {
             state.score = state.score + 1;
         },
+        resetScore: (state) => {
+            state.score = 0;
+        },
         setQuizStatusStart: (state) => {
             state.quizStatus = "start";
         },
@@ -83,5 +86,6 @@ export const {
     setQuizStatusFinished,
     setCountry,
     removeCountry,
-    setSelectedRegion } = regionSlice.actions
+    setSelectedRegion,
+    resetScore } = regionSlice.actions
 export default regionSlice.reducer;
