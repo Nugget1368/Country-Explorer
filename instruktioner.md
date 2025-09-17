@@ -74,7 +74,7 @@ När detta är gjort startar quizet:
 
 - [x] För varje fråga visas en flagga, och användaren ska skriva in landets namn i ett input-fält.
 
-- [ ] Vid svar ska appen visa om det var rätt eller fel och sedan gå vidare till nästa fråga.
+- [x] Vid svar ska appen visa om det var rätt eller fel och sedan gå vidare till nästa fråga.
 
 - [ ] Efter alla 15 frågor visas resultatet (antal rätt).
 
@@ -113,3 +113,4 @@ Här ska användaren kunna se leaderboards för varje region.
 
 - [x] Spara redan hämtade regioner i Sessionstorage för att slippa ladda om dem varje gång.
 - [ ] Borde man slå ihop `RegionSlice.js` med `CountrySlice.js` och ha 2 `Thunks` i samma Slice??
+- [ ] Tydligare visa om användaren hade rätt på frågan eller ej, visa med bock och kryss eller skriv ut 'Correct' eller 'Wrong'.
