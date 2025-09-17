@@ -78,7 +78,7 @@ När detta är gjort startar quizet:
 
 - [x] Efter alla 15 frågor visas resultatet (antal rätt).
 
-- [ ] Resultatet ska sparas i localStorage tillsammans med användarnamnet och regionen.
+- [x] Resultatet ska sparas i localStorage tillsammans med användarnamnet och regionen.
 
 ### Utförande
 
@@ -114,3 +114,4 @@ Här ska användaren kunna se leaderboards för varje region.
 - [x] Spara redan hämtade regioner i Sessionstorage för att slippa ladda om dem varje gång.
 - [ ] Borde man slå ihop `RegionSlice.js` med `CountrySlice.js` och ha 2 `Thunks` i samma Slice??
 - [ ] Tydligare visa om användaren hade rätt på frågan eller ej, visa med bock och kryss eller skriv ut 'Correct' eller 'Wrong'.
+- [ ] Styling
