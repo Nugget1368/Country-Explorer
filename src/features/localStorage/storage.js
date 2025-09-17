@@ -33,7 +33,6 @@ export class MyLocalStorage {
     };
 
     static saveLeaderboard = ({ userName = "", region = "", score = 0 }) => {
-        console.log(userName, region, score);
         let leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
         if (!leaderboard) {
             leaderboard = [];
@@ -41,12 +40,13 @@ export class MyLocalStorage {
         if (leaderboard.find(b => b.region === region)) {
             let board = leaderboard.find(b => b.region === region);
             let player = board.players.find(b => b.userName === userName);
-            if (player) {
+            if (player && player.score < score) {
                 //If player higher-score is lower than new score => update
-                if (player.score < score) {
-                    board.players = board.players.filter(b => b.userName !== userName);
-                    board.players.push({ userName, score });
-                }
+                board.players = board.players.filter(b => b.userName !== userName);
+                board.players.push({ userName, score });
+            }
+            else {
+                board.players.push({ userName, score });
             }
         }
         else {
@@ -54,6 +54,11 @@ export class MyLocalStorage {
         }
         localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
         return true;
+    }
+
+    static getLeaderboard = (region) => {
+        let leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
+        return leaderboard.find(board => board.region === region) || [];
     }
 }
 
