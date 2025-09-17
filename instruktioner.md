@@ -62,23 +62,33 @@ Här ska användaren kunna se en lista/grid med alla länder de har sparat.
 ## :love_letter: quiz – Quiz (VG-krav)
 När användaren navigerar hit ska de först få:
 
-- [ ] Mata in ett användarnamn.
+- [x] Mata in ett användarnamn.
 
-- [ ] Välja en region (Europe, Asia, Oceania, Americas, Africa).
+- [x] Välja en region (Europe, Asia, Oceania, Americas, Africa).
 
-- [ ] När detta är gjort startar quizet:
+När detta är gjort startar quizet:
 
 - [ ] 15 frågor per quiz.
 
-- [ ] Frågorna slumpas fram från regionens länder.
+- [x] Frågorna slumpas fram från regionens länder.
 
-- [ ] För varje fråga visas en flagga, och användaren ska skriva in landets namn i ett input-fält.
+- [x] För varje fråga visas en flagga, och användaren ska skriva in landets namn i ett input-fält.
 
-- [ ] Vid svar ska appen visa om det var rätt eller fel och sedan gå vidare till nästa fråga.
+- [x] Vid svar ska appen visa om det var rätt eller fel och sedan gå vidare till nästa fråga.
 
-- [ ] Efter alla 15 frågor visas resultatet (antal rätt).
+- [x] Efter alla 15 frågor visas resultatet (antal rätt).
 
-- [ ] Resultatet ska sparas i localStorage tillsammans med användarnamnet och regionen.
+- [x] Resultatet ska sparas i localStorage tillsammans med användarnamnet och regionen.
+
+### Utförande
+
+Skapa 3 komponenter:
+- Formulär med användaruppgifter
+- Frågelista med Frågor
+- Resultat
+
+Växla mellan dessa i Quix.jsx.
+
 
 ## :love_letter: leaderboard – Leaderboard (VG-krav)
 Här ska användaren kunna se leaderboards för varje region.
@@ -102,3 +112,6 @@ Här ska användaren kunna se leaderboards för varje region.
 ### Nice to have
 
 - [x] Spara redan hämtade regioner i Sessionstorage för att slippa ladda om dem varje gång.
+- [ ] Borde man slå ihop `RegionSlice.js` med `CountrySlice.js` och ha 2 `Thunks` i samma Slice??
+- [ ] Tydligare visa om användaren hade rätt på frågan eller ej, visa med bock och kryss eller skriv ut 'Correct' eller 'Wrong'.
+- [ ] Styling

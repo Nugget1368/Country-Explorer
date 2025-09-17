@@ -19,15 +19,48 @@ const regionSlice = createSlice({
     name: "region",
     initialState: {
         countries: [],
+        country: null,
         status: "idle",
         error: null,
+        userName: "",
+        regions: ["europe", "africa", "asia", "america", "oceania"],
+        region: "",
+        questions: 5,
+        score: 0,
+        quizStatus: "idle",
     },
     reducers: {
+        setSelectedRegion: (state, action) => {
+            state.region = action.payload;
+        },
         setCountries: (state, action) => {
             state.status = "loading";
             state.countries = action.payload;
             state.status = "succeeded";
-        }
+        },
+        setCountry: (state, action) => {
+            state.status = "loading";
+            action.payload ? state.country = action.payload : state.country = state.countries[Math.floor(Math.random() * state.countries.length)];
+            state.status = "succeeded";
+        },
+        removeCountry: (state, action) => {
+            state.countries = state.countries.filter(country => country.name.common !== action.payload);
+        },
+        setUserName: (state, action) => {
+            state.userName = action.payload;
+        },
+        updateScore: (state) => {
+            state.score = state.score + 1;
+        },
+        resetScore: (state) => {
+            state.score = 0;
+        },
+        setQuizStatusStart: (state) => {
+            state.quizStatus = "start";
+        },
+        setQuizStatusFinished: (state) => {
+            state.quizStatus = "finished";
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -45,5 +78,14 @@ const regionSlice = createSlice({
     },
 });
 
-export const { setCountries } = regionSlice.actions
+export const {
+    setCountries,
+    setUserName,
+    updateScore,
+    setQuizStatusStart,
+    setQuizStatusFinished,
+    setCountry,
+    removeCountry,
+    setSelectedRegion,
+    resetScore } = regionSlice.actions
 export default regionSlice.reducer;

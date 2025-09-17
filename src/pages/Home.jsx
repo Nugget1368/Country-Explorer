@@ -12,6 +12,7 @@ const Home = () => {
                     {/* <Link className="btn" to="/countries">Study countries</Link> */}
                     <Link to="/countries"><p>Study countries</p></Link>
                     <Link to="/collection"><p>My Collection</p></Link>
+                    <Link to="/quiz"><p>Quiz</p></Link>
                 </nav>
             </article>
         </section>
