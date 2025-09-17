@@ -11,18 +11,19 @@ Du ska bygga en Country Explorer i React som använder React Context eller Redux
 - [x] React-Router
 
 ## :earth_asia: Startsida
+
 - [ ] Visa en välkomstsida med fyra knappar:
 
-    - [x] "Study countries" – navigerar till /countries.
+  - [x] "Study countries" – navigerar till /countries.
 
-    - [x] "Collection" – navigerar till /collection där användaren kan se sina sparade länder.
+  - [x] "Collection" – navigerar till /collection där användaren kan se sina sparade länder.
 
-    - [ ] "Quiz" – navigerar till /quiz.
+  - [ ] "Quiz" – navigerar till /quiz.
 
-    - [ ] "Leaderboard" – navigerar till /leaderboard.
-
+  - [ ] "Leaderboard" – navigerar till /leaderboard.
 
 ## :earth_asia: countries – Välj region och se länder
+
 - [x] Användaren ska kunna välja en av följande regioner: Europe, Asia, Oceania, Americas, Africa.
 
 - [x] När en region väljs ska applikationen anropa API:et och hämta samtliga länder i regionen.
@@ -32,6 +33,7 @@ Du ska bygga en Country Explorer i React som använder React Context eller Redux
 - [x] Varje flagga ska vara klickbar och leda vidare till en detaljsida för landet.
 
 ### :earth_asia: countries/:countryName – Landdetaljer
+
 När användaren klickar på en flagga ska de navigeras hit.
 
 Följande information om landet ska visas:
@@ -50,16 +52,16 @@ Följande information om landet ska visas:
 
 - [x] När man sparar ett land ska det läggas i en samling som lagras i localStorage.
 
-
 ## :earth_asia: collection – Sparade länder
+
 Här ska användaren kunna se en lista/grid med alla länder de har sparat.
 
 - [x] Varje sparat land ska visa minst flagga och namn.
 
 - [x] Om användaren klickar på ett sparat land ska de komma tillbaka till landets detaljsida (/countries/:countryName).
 
-
 ## :love_letter: quiz – Quiz (VG-krav)
+
 När användaren navigerar hit ska de först få:
 
 - [x] Mata in ett användarnamn.
@@ -80,17 +82,24 @@ När detta är gjort startar quizet:
 
 - [x] Resultatet ska sparas i localStorage tillsammans med användarnamnet och regionen.
 
+- [ ] Sortera Leaderboard efter score.
+
+- [ ] Maxantal spelare på leaderboard (5?)
+
+- [ ] **Städa upp** `SavetoLeaderboard`
+
 ### Utförande
 
 Skapa 3 komponenter:
+
 - Formulär med användaruppgifter
 - Frågelista med Frågor
 - Resultat
 
 Växla mellan dessa i Quix.jsx.
 
-
 ## :love_letter: leaderboard – Leaderboard (VG-krav)
+
 Här ska användaren kunna se leaderboards för varje region.
 
 - [x] För varje region ska det visas en lista över deltagare som gjort quiz.
@@ -106,6 +115,7 @@ För varje deltagare ska minst följande visas:
 ## :exclamation: Övriga fel och Nice to have
 
 ### Felhantering
+
 - [x] Borde inte kunna spara samma land 2 gånger
 - [x] Är ett land redan sparat borde användaren istället kunna "ospara" (ta bort) landet.
 
