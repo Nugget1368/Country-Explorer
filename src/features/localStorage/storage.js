@@ -40,10 +40,12 @@ export class MyLocalStorage {
         if (leaderboard.find(b => b.region === region)) {
             let board = leaderboard.find(b => b.region === region);
             let player = board.players.find(b => b.userName === userName);
-            if (player && player.score < score) {
+            if (player) {
                 //If player higher-score is lower than new score => update
-                board.players = board.players.filter(b => b.userName !== userName);
-                board.players.push({ userName, score });
+                if (player.score < score) {
+                    board.players = board.players.filter(b => b.userName !== userName);
+                    board.players.push({ userName, score });
+                }
             }
             else {
                 board.players.push({ userName, score });
