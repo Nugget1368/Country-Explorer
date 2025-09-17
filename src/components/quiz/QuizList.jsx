@@ -6,7 +6,7 @@ const QuizList = () => {
     const [answer, setAnswer] = useState("");
     const [showNext, setShowNext] = useState(false);
     const [showAnswer, setShowAnswer] = useState(false);
-    const { countries, country, score } = useSelector(state => state.region);
+    const { countries, country, questions } = useSelector(state => state.region);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -26,14 +26,9 @@ const QuizList = () => {
         setShowNext(true);
     };
 
-    const nextQuestion = () => index === 5 ? dispatch(setQuizStatusFinished()) : setIndex(index + 1);
+    const nextQuestion = () => index === questions ? dispatch(setQuizStatusFinished()) : setIndex(index + 1);
 
-
-    const correctAnswer = () => {
-        dispatch(updateScore());
-        setShowAnswer(true);
-    }
-
+    const correctAnswer = () => setShowAnswer(true);
 
     return (
         <article>

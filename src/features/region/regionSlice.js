@@ -24,6 +24,7 @@ const regionSlice = createSlice({
         error: null,
         userName: "",
         regions: ["europe", "africa", "asia", "america", "oceania"],
+        questions: 5,
         score: 0,
         quizStatus: "idle",
     },
