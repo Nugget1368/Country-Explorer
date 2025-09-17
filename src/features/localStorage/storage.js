@@ -40,6 +40,8 @@ export class MyLocalStorage {
         }
         if(leaderboard.find(b => b.region === region)) {
             let board = leaderboard.find(b => b.region === region);
+            board.players = board.players.filter(b => b.userName !== userName);
+            console.log(board);
             board.players.push({userName, score});
         }
         else {
