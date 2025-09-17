@@ -32,20 +32,25 @@ export class MyLocalStorage {
         return true;
     };
 
-    static saveLeaderboard = ({userName="", region="", score=0}) => {
+    static saveLeaderboard = ({ userName = "", region = "", score = 0 }) => {
         console.log(userName, region, score);
         let leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
         if (!leaderboard) {
             leaderboard = [];
         }
-        if(leaderboard.find(b => b.region === region)) {
+        if (leaderboard.find(b => b.region === region)) {
             let board = leaderboard.find(b => b.region === region);
-            board.players = board.players.filter(b => b.userName !== userName);
-            console.log(board);
-            board.players.push({userName, score});
+            let player = board.players.find(b => b.userName === userName);
+            if (player) {
+                //If player higher-score is lower than new score => update
+                if (player.score < score) {
+                    board.players = board.players.filter(b => b.userName !== userName);
+                    board.players.push({ userName, score });
+                }
+            }
         }
         else {
-            leaderboard.push({region, players: [{userName, score}]});
+            leaderboard.push({ region, players: [{ userName, score }] });
         }
         localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
         return true;
