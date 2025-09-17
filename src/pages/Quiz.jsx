@@ -2,7 +2,7 @@ import UserForm from "../components/quiz/UserForm"
 import QuizList from "../components/quiz/QuizList"
 import { useSelector } from "react-redux";
 const Quiz = () => {
-    const { quizStatus } = useSelector(state => state.quiz);
+    const { quizStatus } = useSelector(state => state.region);
     const { status } = useSelector(state => state.region);
     /* UserForm behöver ha en funktion som triggar nästa steg */
 

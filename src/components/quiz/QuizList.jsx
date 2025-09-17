@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useState } from "react";
-import { updateScore, setQuizStatusFinished } from "../../features/quiz/quizSlice";
+import { updateScore, setQuizStatusFinished } from "../../features/region/regionSlice";
 const QuizList = () => {
     const [index, setIndex] = useState(1);
     const [answer, setAnswer] = useState("");

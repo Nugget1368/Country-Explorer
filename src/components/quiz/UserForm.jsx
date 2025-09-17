@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setUserName, setQuizStatusStart } from "../../features/quiz/quizSlice.js";
-import { fetchRegion } from "../../features/region/regionSlice.js";
+import { fetchRegion, setUserName, setQuizStatusStart } from "../../features/region/regionSlice.js";
 import { useState } from "react";
 const UserForm = () => {
-    const { regions } = useSelector(state => state.quiz);
+    const { regions } = useSelector(state => state.region);
     const [region, setRegion] = useState("");
     const dispatch = useDispatch();
 
