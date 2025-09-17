@@ -1,10 +1,17 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux"
+import {MyLocalStorage} from "../../features/localStorage/storage.js";
 const QuizResult = () => {
-    const { score, questions } = useSelector(state => state.region);
+    const { userName, score, region, questions } = useSelector(state => state.region);
 
     const getPercentage = () => {
         return Math.floor((score / questions) * 100) + "%";
     };
+
+    useEffect(() => {
+        //Save to localStorage
+        MyLocalStorage.saveLeaderboard({userName, region, score});
+    }, []);
 
     return (
         <section>

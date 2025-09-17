@@ -1,10 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchRegion, setUserName, setQuizStatusStart } from "../../features/region/regionSlice.js";
-import { useState } from "react";
+import { fetchRegion, setUserName, setQuizStatusStart, setSelectedRegion } from "../../features/region/regionSlice.js";
+import { useEffect, useState } from "react";
 const UserForm = () => {
     const { regions } = useSelector(state => state.region);
     const [region, setRegion] = useState("");
+    const [name, setName] = useState("");
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setSelectedRegion(region));
+        dispatch(setUserName(name));
+    }, [region,name]);
 
     const startQuiz = () => {
         dispatch(fetchRegion(region));
@@ -15,7 +21,7 @@ const UserForm = () => {
         <article>
             <div>
                 <label htmlFor="name">Name</label>
-                <input type="text" name="name" id="name" onChange={(e) => dispatch(setUserName(e.target.value))} />
+                <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)} />
             </div>
             <div>
                 <label htmlFor="region">Pick a region</label>

@@ -76,7 +76,7 @@ När detta är gjort startar quizet:
 
 - [x] Vid svar ska appen visa om det var rätt eller fel och sedan gå vidare till nästa fråga.
 
-- [ ] Efter alla 15 frågor visas resultatet (antal rätt).
+- [x] Efter alla 15 frågor visas resultatet (antal rätt).
 
 - [ ] Resultatet ska sparas i localStorage tillsammans med användarnamnet och regionen.
 
