@@ -66,13 +66,13 @@ När användaren navigerar hit ska de först få:
 
 - [x] Välja en region (Europe, Asia, Oceania, Americas, Africa).
 
-- [ ] När detta är gjort startar quizet:
+När detta är gjort startar quizet:
 
 - [ ] 15 frågor per quiz.
 
 - [ ] Frågorna slumpas fram från regionens länder.
 
-- [ ] För varje fråga visas en flagga, och användaren ska skriva in landets namn i ett input-fält.
+- [x] För varje fråga visas en flagga, och användaren ska skriva in landets namn i ett input-fält.
 
 - [ ] Vid svar ska appen visa om det var rätt eller fel och sedan gå vidare till nästa fråga.
 
@@ -89,7 +89,6 @@ Skapa 3 komponenter:
 
 Växla mellan dessa i Quix.jsx.
 
-**Att göra imorgon**: Slå ihop `QuizSlice.js` med `regionSlice.js`. `RegionSlice.js` kan ha de extra states och reducers, samtidigt som `QuizList.jsx` skulle slippa importera data från två olika slices.
 
 ## :love_letter: leaderboard – Leaderboard (VG-krav)
 Här ska användaren kunna se leaderboards för varje region.
@@ -113,3 +112,4 @@ Här ska användaren kunna se leaderboards för varje region.
 ### Nice to have
 
 - [x] Spara redan hämtade regioner i Sessionstorage för att slippa ladda om dem varje gång.
+- [ ] Borde man slå ihop `RegionSlice.js` med `CountrySlice.js` och ha 2 `Thunks` i samma Slice??

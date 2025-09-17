@@ -1,21 +1,27 @@
 import { useSelector, useDispatch } from "react-redux"
-import { useState } from "react";
-import { updateScore, setQuizStatusFinished } from "../../features/region/regionSlice";
+import { useEffect, useState } from "react";
+import { updateScore, setQuizStatusFinished, setCountry, removeCountry } from "../../features/region/regionSlice";
 const QuizList = () => {
     const [index, setIndex] = useState(1);
     const [answer, setAnswer] = useState("");
-    const { countries } = useSelector(state => state.region);
+    const { countries, country, score } = useSelector(state => state.region);
     const dispatch = useDispatch();
-    const [randomIndex, setRandomIndex] = useState(countries.length > 0 ? Math.floor(Math.random() * countries.length) : 1);
+
+    useEffect(() => {
+        !country && dispatch(setCountry());
+    }, []);
     
     const handleClick = () => {
-        if (answer.toLocaleLowerCase() === countries[randomIndex].name.common.toLocaleLowerCase()){
-            dispatch(updateScore());
-        }
-        setRandomIndex(Math.floor(Math.random() * countries.length));
+        answer.toLocaleLowerCase() === country.name.common.toLocaleLowerCase() && dispatch(updateScore());
         setIndex(index + 1);
-        if (index === 5) {
+        if (index < 4) {
+            setAnswer("");
+            dispatch(removeCountry(country.name.common));
+            dispatch(setCountry());
+        }
+        else {
             dispatch(setQuizStatusFinished());
+            console.log("Score: " + score);
         }
     };
 
@@ -26,9 +32,9 @@ const QuizList = () => {
                 <h3>Quiestion {index}</h3>
                 <h4>Which country is this?</h4>
             </header>
-            {countries &&
+            {countries && country &&
                 <>
-                    <img src={countries[randomIndex].flags.png} alt={countries[randomIndex].flags.alt} />
+                    <img src={country.flags.png} alt={country.flags.alt} />
                     <div>
                         <label htmlFor="answer">Answer</label>
                         <input type="text" name="answer" id="answer" onChange={(e) => setAnswer(e.target.value)} />

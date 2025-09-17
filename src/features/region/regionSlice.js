@@ -19,6 +19,7 @@ const regionSlice = createSlice({
     name: "region",
     initialState: {
         countries: [],
+        country: null,
         status: "idle",
         error: null,
         userName: "",
@@ -31,6 +32,15 @@ const regionSlice = createSlice({
             state.status = "loading";
             state.countries = action.payload;
             state.status = "succeeded";
+        },
+        setCountry: (state, action) => {
+            state.status = "loading";
+            console.log(action.payload);
+            action.payload ? state.country = action.payload : state.country = state.countries[Math.floor(Math.random() * state.countries.length)];
+            state.status = "succeeded";
+        },
+        removeCountry: (state, action) => {
+            state.countries = state.countries.filter(country => country.name.common !== action.payload);
         },
         setUserName: (state, action) => {
             state.userName = action.payload;
@@ -61,5 +71,12 @@ const regionSlice = createSlice({
     },
 });
 
-export const { setCountries, setUserName, updateScore, setQuizStatusStart, setQuizStatusFinished } = regionSlice.actions
+export const {
+    setCountries,
+    setUserName,
+    updateScore,
+    setQuizStatusStart,
+    setQuizStatusFinished,
+    setCountry,
+    removeCountry } = regionSlice.actions
 export default regionSlice.reducer;
