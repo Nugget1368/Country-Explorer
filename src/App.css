@@ -48,3 +48,10 @@
 .incorrect{
   border: 2px solid red;
 }
+
+ul{
+  display: flex;
+  flex-flow: column wrap;
+  align-items: stretch;
+  justify-content: flex-start;
+}

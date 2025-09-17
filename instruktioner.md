@@ -93,15 +93,15 @@ Växla mellan dessa i Quix.jsx.
 ## :love_letter: leaderboard – Leaderboard (VG-krav)
 Här ska användaren kunna se leaderboards för varje region.
 
-- [ ] För varje region ska det visas en lista över deltagare som gjort quiz.
+- [x] För varje region ska det visas en lista över deltagare som gjort quiz.
 
-- [ ] För varje deltagare ska minst följande visas:
+För varje deltagare ska minst följande visas:
 
-- [ ] Användarnamn
+- [x] Användarnamn
 
-- [ ] Poäng (antal rätt)
+- [x] Poäng (antal rätt)
 
-- [ ] Informationen ska hämtas från localStorage.
+- [x] Informationen ska hämtas från localStorage.
 
 ## :exclamation: Övriga fel och Nice to have
 

@@ -33,7 +33,6 @@ export class MyLocalStorage {
     };
 
     static saveLeaderboard = ({ userName = "", region = "", score = 0 }) => {
-        console.log(userName, region, score);
         let leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
         if (!leaderboard) {
             leaderboard = [];
@@ -48,12 +47,20 @@ export class MyLocalStorage {
                     board.players.push({ userName, score });
                 }
             }
+            else {
+                board.players.push({ userName, score });
+            }
         }
         else {
             leaderboard.push({ region, players: [{ userName, score }] });
         }
         localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
         return true;
+    }
+
+    static getLeaderboard = (region) => {
+        let leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
+        return leaderboard.find(board => board.region === region) || [];
     }
 }
 
