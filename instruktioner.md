@@ -86,7 +86,40 @@ När detta är gjort startar quizet:
 
 - [x] Maxantal spelare på leaderboard (5?)
 
-- [ ] **Städa upp** `SavetoLeaderboard`
+- [x] **Städa upp** `SavetoLeaderboard`
+
+### SaveToLeaderboard
+
+Det hade varit schysst att inte hämta med hjälp av find utan istället med regionnamnet:
+
+```js
+let region = leaderboard[region];
+```
+
+```js
+static saveLeaderboard = ({ userName = "", region = "", score = 0 }) => {
+        let leaderboard = this.getLeaderBoard();
+        //Ändra
+        let regionExists = leaderboard.find(board => board.region === region);
+        let localRegion = regionExists ? regionExists : { region, players: [] };
+
+        let playerExists = localRegion.players.find(player => player.userName === userName);
+        if (playerExists) {
+            playerExists.score = playerExists.score < score ? score : playerExists.score;
+            console.log("Player score: " + playerExists.score);
+            console.log("Score: " + score);
+        }
+        else {
+            localRegion.players.push({ userName, score });
+        }
+        localRegion.players = this.sortPlayers(localRegion.players);
+        //Ändra
+        leaderboard = leaderboard.filter(board => board.region !== region);
+        leaderboard.push(localRegion);
+        this.setLeaderBoard(leaderboard);
+        return true;
+    }
+```
 
 ### Utförande
 
