@@ -82,11 +82,44 @@ När detta är gjort startar quizet:
 
 - [x] Resultatet ska sparas i localStorage tillsammans med användarnamnet och regionen.
 
-- [ ] Sortera Leaderboard efter score.
+- [x] Sortera Leaderboard efter score.
 
-- [ ] Maxantal spelare på leaderboard (5?)
+- [x] Maxantal spelare på leaderboard (5?)
 
-- [ ] **Städa upp** `SavetoLeaderboard`
+- [x] **Städa upp** `SavetoLeaderboard`
+
+### SaveToLeaderboard
+
+Det hade varit schysst att inte hämta med hjälp av find utan istället med regionnamnet:
+
+```js
+let region = leaderboard[region];
+```
+
+```js
+static saveLeaderboard = ({ userName = "", region = "", score = 0 }) => {
+        let leaderboard = this.getLeaderBoard();
+        //Ändra
+        let regionExists = leaderboard.find(board => board.region === region);
+        let localRegion = regionExists ? regionExists : { region, players: [] };
+
+        let playerExists = localRegion.players.find(player => player.userName === userName);
+        if (playerExists) {
+            playerExists.score = playerExists.score < score ? score : playerExists.score;
+            console.log("Player score: " + playerExists.score);
+            console.log("Score: " + score);
+        }
+        else {
+            localRegion.players.push({ userName, score });
+        }
+        localRegion.players = this.sortPlayers(localRegion.players);
+        //Ändra
+        leaderboard = leaderboard.filter(board => board.region !== region);
+        leaderboard.push(localRegion);
+        this.setLeaderBoard(leaderboard);
+        return true;
+    }
+```
 
 ### Utförande
 
@@ -125,3 +158,4 @@ För varje deltagare ska minst följande visas:
 - [ ] Borde man slå ihop `RegionSlice.js` med `CountrySlice.js` och ha 2 `Thunks` i samma Slice??
 - [ ] Tydligare visa om användaren hade rätt på frågan eller ej, visa med bock och kryss eller skriv ut 'Correct' eller 'Wrong'.
 - [ ] Styling
+- [ ] Förbättra prestandan för SaveLeaderboard, se ovan.
