@@ -35,7 +35,7 @@ const UserForm = () => {
                     )
                 })}
             </div>
-            <button className="btn" onClick={() => startQuiz()}>Start</button>
+            <button className="btn btn-primary" onClick={() => startQuiz()}>Start</button>
         </article>
     )
 }

@@ -49,8 +49,8 @@ const QuizList = () => {
                         </div>
                     }
                     {showNext ?
-                        <button className="btn" onClick={nextQuestion}>Next</button>
-                        : <button className="btn" onClick={handleClick}>Answer</button>
+                        <button className="btn btn-primary" onClick={nextQuestion}>Next</button>
+                        : <button className="btn btn-primary" onClick={handleClick}>Answer</button>
                     }
                 </>
             }

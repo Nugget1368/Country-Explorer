@@ -5,7 +5,6 @@ import Countries from './pages/Countries'
 import Country from './pages/Country'
 import Collection from './pages/Collection'
 import Quiz from './pages/Quiz'
-
 function App() {
 
   return (
