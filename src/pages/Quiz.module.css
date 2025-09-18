@@ -30,9 +30,9 @@ div{
     text-align: start;
 }
 
-div:nth-child(1){
+/* div:nth-child(1){
     flex-flow: column;
-}
+} */
 
 input{
     background-color: var(--color-surface);

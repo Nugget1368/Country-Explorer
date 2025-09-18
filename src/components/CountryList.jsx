@@ -3,7 +3,7 @@ import styles from './CountryList.module.css'
 
 const CountryList = ({countries}) => {
     return (
-        <ul className={styles.list}>
+        <ul className="row">
             {
                 countries && countries.map((country) => (
                     <li className="card" key={country.name.common}>

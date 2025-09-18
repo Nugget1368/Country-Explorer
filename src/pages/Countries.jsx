@@ -30,7 +30,7 @@ const Countries = () => {
                     <h2>Select Region</h2>
                 </header>
                 <article>
-                    <div>
+                    <div className="row">
                         {regions.map(r => <button key={r} onClick={() => handleClick(r)} className="btn btn-primary">{r.charAt(0).toUpperCase() + r.slice(1)}</button>)}
                     </div>
                 </article>

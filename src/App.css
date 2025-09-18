@@ -162,7 +162,7 @@ img {
 
 ul {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   align-items: stretch;
   justify-content: flex-start;
 }
