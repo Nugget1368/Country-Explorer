@@ -28,10 +28,19 @@
   --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
 }
 
-h1, h2, h3{
+h1,
+h2,
+h3 {
   font-size: 2rem;
 }
 
+h4,
+h5 {
+  font-size: 1.2rem;
+}
+h6 {
+  font-size: 1rem;
+}
 body {
   color: var(--color-text);
   background-color: var(--color-bg);
@@ -57,7 +66,6 @@ body {
 #root > * {
   flex: 1;
 }
-
 
 p {
   margin: 0;
@@ -104,15 +112,15 @@ article,
 
 /* * Se Country-card, det ser muppigt ut. Den behöver inte vara så bred. */
 
-article > *, article > div > * {
+article > *,
+article > div > * {
   flex: 1;
-  margin: .5rem;
+  margin: 0.5rem;
 }
 
 /* article > :nth-child(2) {
   flex: 2;
 } */
-
 
 .card {
   padding: 2em;
@@ -124,10 +132,9 @@ article > *, article > div > * {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
-
-.high-score{
-    border-bottom: 2px solid var(--color-success-dark);
-    color: var(--color-success-dark);
+.high-score {
+  border-bottom: 2px solid var(--color-success-dark);
+  color: var(--color-success-dark);
 }
 
 .card img {
@@ -161,7 +168,8 @@ ul {
 }
 
 .btn:not(a.btn),
-.btn p, .material-symbols-outlined {
+.btn p,
+.material-symbols-outlined {
   padding: 0.5rem 1rem;
   border-radius: 5px;
   color: var(--color-surface);
@@ -171,54 +179,59 @@ ul {
 }
 
 .btn:not(a.btn):active,
-.btn p:active, .material-symbols-outlined:active {
+.btn p:active,
+.material-symbols-outlined:active {
   transition: all 0.1s ease-in-out;
   box-shadow: inset 0px 0px 2px 2px rgba(255, 255, 255, 0.522);
 }
 
-.material-symbols-outlined{
+.material-symbols-outlined {
   align-self: end;
   background-color: var(--color-success);
   border-radius: 50%;
   padding: 1rem;
 }
 
-.material-symbols-outlined:hover{
+.material-symbols-outlined:hover {
   color: var(--color-surface) !important;
   background-color: var(--color-success-dark);
 }
 
-.btn-primary:not(a.btn), .btn-primary p{
+.btn-primary:not(a.btn),
+.btn-primary p {
   background-color: var(--color-primary);
 }
 
-.btn-primary:not(a.btn):hover, .btn-primary p:hover{
+.btn-primary:not(a.btn):hover,
+.btn-primary p:hover {
   background-color: var(--color-primary-dark);
 }
 
-.btn-secondary:not(a.btn), .btn-secondary p{
+.btn-secondary:not(a.btn),
+.btn-secondary p {
   color: var(--color-surface);
   background-color: var(--color-secondary);
 }
 
-.btn-secondary:not(a.btn):hover, .btn-secondary p:hover{
+.btn-secondary:not(a.btn):hover,
+.btn-secondary p:hover {
   color: var(--color-surface);
   background-color: var(--color-secondary-dark);
 }
 
-
-p, h2{
-  margin: 0 0 .5rem 0;
+p,
+h2 {
+  margin: 0 0 0.5rem 0;
 }
 
-.green{
+.green {
   color: var(--color-success);
 }
 
-.red{
+.red {
   color: var(--color-error);
 }
 
-.yellow{
+.yellow {
   color: var(--color-warning);
 }

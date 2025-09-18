@@ -4,6 +4,9 @@ const LeaderboardList = () => {
     const { regions } = useSelector(state => state.region);
     return (
         <section>
+            <header>
+                <h4>Leaderboard</h4>
+            </header>
             {regions.map(region => {
                 return (
                     <article key={region}>

@@ -10,11 +10,16 @@ li{
     font-size: 1.2rem;
 }
 
-h5{
-    font-size: 2rem;
+header > h5{
+    font-size: 1.7rem;
     margin: 1rem 0;
     text-align: start;
     border-bottom: 2px solid var(--color-border);
+}
+
+header > h4{
+    font-size: 2rem;
+    margin: 1rem 0;
 }
 
 div{

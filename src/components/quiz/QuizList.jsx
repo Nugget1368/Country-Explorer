@@ -6,6 +6,7 @@ const QuizList = () => {
     const [answer, setAnswer] = useState("");
     const [showNext, setShowNext] = useState(false);
     const [showAnswer, setShowAnswer] = useState(false);
+    const [isCorrect, setIsCorrect] = useState(false);
     const { countries, country, questions } = useSelector(state => state.region);
     const dispatch = useDispatch();
 
@@ -14,22 +15,24 @@ const QuizList = () => {
         setAnswer("");
         setShowNext(false);
         setShowAnswer(false);
+        setIsCorrect(false);
         if (index > 0) {
+            //Remove Country from list to avoid dublicates
             dispatch(removeCountry(country.name.common));
             dispatch(setCountry());
         }
     }, [index]);
 
     const handleClick = () => {
-        answer.toLowerCase() === country.name.common.toLowerCase() && dispatch(updateScore());
-        console.log("Correct? ", answer.toLowerCase() === country.name.common.toLowerCase());
-        correctAnswer();
+        if (answer.toLowerCase() === country.name.common.toLowerCase()) {
+            dispatch(updateScore());
+            setIsCorrect(true);
+        }
+        setShowAnswer(true);
         setShowNext(true);
     };
 
     const nextQuestion = () => index === questions ? dispatch(setQuizStatusFinished()) : setIndex(index + 1);
-
-    const correctAnswer = () => setShowAnswer(true);
 
     return (
         <article>
@@ -45,8 +48,9 @@ const QuizList = () => {
                         <input type="text" name="answer" id="answer" value={answer} onChange={(e) => setAnswer(e.target.value)} />
                     </div>
                     {showAnswer &&
-                        <div className={country.name.common.toLowerCase() === answer.toLowerCase() ? "correct green" : "incorrect red"}>
-                            <h4>Correct answer: {country.name.common}</h4>
+                        <div className={isCorrect ? "correct green" : "incorrect red"}>
+                            {isCorrect ? <h5><strong>Correct</strong></h5> : <h5><strong>Incorrect</strong></h5>}
+                            <h6>Correct answer: {country.name.common}</h6>
                         </div>
                     }
                     {showNext ?
