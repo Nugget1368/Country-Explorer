@@ -11,9 +11,9 @@ const QuizList = () => {
 
     useEffect(() => {
         !country && dispatch(setCountry());
+        setAnswer("");
         setShowNext(false);
         setShowAnswer(false);
-        setAnswer("");
         if (index > 0) {
             dispatch(removeCountry(country.name.common));
             dispatch(setCountry());
@@ -21,7 +21,8 @@ const QuizList = () => {
     }, [index]);
 
     const handleClick = () => {
-        answer.toLocaleLowerCase() === country.name.common.toLocaleLowerCase() && dispatch(updateScore());
+        answer.toLowerCase() === country.name.common.toLowerCase() && dispatch(updateScore());
+        console.log("Correct? ", answer.toLowerCase() === country.name.common.toLowerCase());
         correctAnswer();
         setShowNext(true);
     };
@@ -41,10 +42,10 @@ const QuizList = () => {
                     <img src={country.flags.png} alt={country.flags.alt} />
                     <div>
                         <label htmlFor="answer">Answer</label>
-                        <input type="text" name="answer" id="answer" onChange={(e) => setAnswer(e.target.value)} />
+                        <input type="text" name="answer" id="answer" value={answer} onChange={(e) => setAnswer(e.target.value)} />
                     </div>
                     {showAnswer &&
-                        <div className={country.name.common === answer ? "correct" : "incorrect"}>
+                        <div className={country.name.common.toLowerCase() === answer.toLowerCase() ? "correct green" : "incorrect red"}>
                             <h4>Correct answer: {country.name.common}</h4>
                         </div>
                     }
