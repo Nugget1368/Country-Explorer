@@ -82,9 +82,9 @@ När detta är gjort startar quizet:
 
 - [x] Resultatet ska sparas i localStorage tillsammans med användarnamnet och regionen.
 
-- [ ] Sortera Leaderboard efter score.
+- [x] Sortera Leaderboard efter score.
 
-- [ ] Maxantal spelare på leaderboard (5?)
+- [x] Maxantal spelare på leaderboard (5?)
 
 - [ ] **Städa upp** `SavetoLeaderboard`
 

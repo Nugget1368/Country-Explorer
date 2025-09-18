@@ -3,13 +3,8 @@ import { MyLocalStorage } from "../../features/localStorage/storage.js";
 const Leaderboard = ({ region = "" }) => {
     const [leaderboard, setLeaderboard] = useState();
     useEffect(() => {
-        let board = MyLocalStorage.getLeaderboard(region);
-        // if (board && board.players.length > 1) {
-        // console.log(board);
-        // board.players = MyLocalStorage.sortPlayers(board.players);
+        let board = MyLocalStorage.getSortedLeaderboard(region);
         setLeaderboard(board);
-        console.log(leaderboard);
-        // }
     }, [])
     return (
         <>
