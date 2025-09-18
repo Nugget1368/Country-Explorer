@@ -109,9 +109,9 @@ article > *, article > div > * {
   margin: .5rem;
 }
 
-article :nth-child(2) {
+/* article > :nth-child(2) {
   flex: 2;
-}
+} */
 
 
 .card {
@@ -122,6 +122,12 @@ article :nth-child(2) {
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.high-score{
+    border-bottom: 2px solid var(--color-success-dark);
+    color: var(--color-success-dark);
 }
 
 .card img {
@@ -203,4 +209,16 @@ ul {
 
 p, h2{
   margin: 0 0 .5rem 0;
+}
+
+.green{
+  color: var(--color-success);
+}
+
+.red{
+  color: var(--color-error);
+}
+
+.yellow{
+  color: var(--color-warning);
 }

@@ -25,6 +25,9 @@ li {
   list-style: none;
   text-decoration: none;
   list-style-type: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 a{

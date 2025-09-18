@@ -10,12 +10,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/countries' element={<Countries />} />
-        <Route path='/countries/:name' element={<Country />} />
-        <Route path='/collection' element={<Collection />} />
-        <Route path='/quiz' element={<Quiz />} />
-        <Route path='*' element={<h1>404 not found friend....</h1>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/countries" element={<Countries />} />
+        <Route path="/countries/:name" element={<Country />} />
+        <Route path="/collection" element={<Collection />} />
+        <Route path="/quiz" element={<Quiz />} />
+        <Route path="*" element={<h1>404 not found friend....</h1>} />
       </Routes>
     </Router>
   )

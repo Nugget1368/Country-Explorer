@@ -1,0 +1,85 @@
+ul{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+li{
+    font-size: 1.2rem;
+}
+
+h5{
+    font-size: 2rem;
+    margin: 1rem 0;
+    text-align: start;
+    border-bottom: 2px solid var(--color-border);
+}
+
+div{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    text-align: start;
+}
+
+div:nth-child(1){
+    flex-flow: column;
+}
+
+input{
+    background-color: var(--color-surface);
+    padding: .5rem;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+img{
+    align-self: center;
+    width: 300px;
+    height: 200px;
+}
+
+label{
+    font-size: 1.2rem;
+}
+
+fieldset{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: space-around;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    padding: .2rem;
+    background-color: var(--color-surface-alt);
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+input + label{
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    padding: .5rem 1.5rem;
+    border-radius: 16px;
+}
+
+input + label:hover{
+    background-color: var(--color-surface);
+}
+
+input:checked + label{
+    background-color: var(--color-success);
+    color: var(--color-surface);
+}
+
+.high-score{
+    border: 2px solid var(--color-success-dark) !important;
+    color: var(--color-success-dark) !important;
+    background-color: pink;
+}

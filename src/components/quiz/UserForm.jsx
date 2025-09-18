@@ -11,7 +11,7 @@ const UserForm = () => {
         dispatch(resetScore());
         dispatch(setSelectedRegion(region));
         dispatch(setUserName(name));
-    }, [region,name]);
+    }, [region, name]);
 
     const startQuiz = () => {
         dispatch(fetchRegion(region));
@@ -21,19 +21,21 @@ const UserForm = () => {
     return (
         <article>
             <div>
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name"><strong>Username</strong></label>
                 <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)} />
             </div>
             <div>
-                <label htmlFor="region">Pick a region</label>
-                {regions.map((r) => {
-                    return (
-                        <div key={r}>
-                            <input type="radio" name="region" id={r} value={r} onChange={(e) => setRegion(e.target.value)} />
-                            <label htmlFor={r}>{r.charAt(0).toUpperCase() + r.slice(1)}</label>
-                        </div>
-                    )
-                })}
+                <label htmlFor="region"><strong>Pick a region</strong></label>
+                <fieldset>
+                    {regions.map((r) => {
+                        return (
+                            <div key={r}>
+                                <input type="radio" name="region" id={r} value={r} onChange={(e) => setRegion(e.target.value)} />
+                                <label className="" htmlFor={r}>{r.charAt(0).toUpperCase() + r.slice(1)}</label>
+                            </div>
+                        )
+                    })}
+                </fieldset>
             </div>
             <button className="btn btn-primary" onClick={() => startQuiz()}>Start</button>
         </article>

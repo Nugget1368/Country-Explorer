@@ -14,7 +14,6 @@ const Home = () => {
                     <Link className='btn btn-primary' to="/countries"><p>Study countries</p></Link>
                     <Link className='btn btn-primary' to="/collection"><p>My Collection</p></Link>
                     <Link className='btn btn-primary' to="/quiz"><p>Quiz</p></Link>
-                    <Link className='btn btn-primary' to=""><p>Quiz</p></Link>
                 </nav>
             </article>
         </section>
