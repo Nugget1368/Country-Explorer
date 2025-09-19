@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { MyLocalStorage } from '../features/localStorage/storage.js';
 import CountryList from '../components/CountryList'
+import ReturnBtn from "../components/buttons/ReturnBtn";
 
 const Collection = () => {
 
@@ -10,6 +11,7 @@ const Collection = () => {
         <section>
             <header>
                 <h2>My Collection</h2>
+                <ReturnBtn />
             </header>
                 {savedCountries && savedCountries.length > 0 ? <CountryList countries={savedCountries} />
                     : <>

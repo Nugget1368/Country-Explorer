@@ -118,9 +118,17 @@ article > div > * {
   margin: 0.5rem;
 }
 
-/* article > :nth-child(2) {
-  flex: 2;
-} */
+section > header:nth-child(1) {
+  display: flex;
+  flex-flow: column;
+  max-width: 900px;
+  padding: .5rem;
+  box-sizing: border-box;
+}
+
+section > header:nth-child(1) > button{
+  align-self: flex-end;
+}
 
 .card {
   padding: 2em;
@@ -193,7 +201,7 @@ ul {
 }
 
 .material-symbols-outlined:hover {
-  color: var(--color-surface) !important;
+  color: var(--color-surface);
   background-color: var(--color-success-dark);
 }
 
