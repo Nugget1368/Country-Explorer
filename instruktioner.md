@@ -160,4 +160,4 @@ För varje deltagare ska minst följande visas:
 - [x] Tydligare visa om användaren hade rätt på frågan eller ej, visa med bock och kryss eller skriv ut 'Correct' eller 'Wrong'.
 - [x] Styling
 - [ ] Förbättra prestandan för SaveLeaderboard, se ovan.
-- [ ] **Tillbaka knapp**
+- [x] **Tillbaka knapp**
