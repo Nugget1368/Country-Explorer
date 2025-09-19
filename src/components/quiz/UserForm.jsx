@@ -21,7 +21,6 @@ const UserForm = () => {
             dispatch(setQuizStatusStart());
         }
         else{
-            alert("Please enter a username and select a region");
             setShowError(true);
         }
     }
