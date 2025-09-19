@@ -9,8 +9,6 @@ const Home = () => {
             </header>
             <article>
                 <nav>
-                    {/* <Link>Insert Link to pages</Link> */}
-                    {/* <Link className="btn" to="/countries">Study countries</Link> */}
                     <Link className='btn btn-primary' to="/countries"><p>Study countries</p></Link>
                     <Link className='btn btn-primary' to="/collection"><p>My Collection</p></Link>
                     <Link className='btn btn-primary' to="/quiz"><p>Quiz</p></Link>

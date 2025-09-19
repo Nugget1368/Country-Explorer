@@ -7,7 +7,6 @@ import style from "./quiz.module.css"
 const Quiz = () => {
     const { quizStatus } = useSelector(state => state.region);
     const { status } = useSelector(state => state.region);
-    /* UserForm behöver ha en funktion som triggar nästa steg */
 
     return (
         <section className={style.article}>
