@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { fetchCountry, setCountry } from "../features/country/countrySlice.js";
 import { useDispatch, useSelector } from "react-redux";
 import { MyLocalStorage } from "../features/localStorage/storage.js";
+import ReturnBtn from "../components/buttons/ReturnBtn";
+
 const Country = () => {
     let params = useParams()
     const dispatch = useDispatch()
@@ -30,6 +32,9 @@ const Country = () => {
 
     return (
         <section>
+            <header>
+                <ReturnBtn />
+            </header>
             {status === "succeeded" && country ?
                 <>
                     <article>

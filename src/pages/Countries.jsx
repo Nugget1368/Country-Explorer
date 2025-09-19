@@ -3,6 +3,7 @@ import { fetchRegion, setCountries } from '../features/region/regionSlice.js'
 import { MySessionStorage } from '../features/localStorage/storage.js'
 import { useEffect, useState } from 'react'
 import CountryList from '../components/CountryList'
+import ReturnBtn from "../components/buttons/ReturnBtn";
 
 
 const Countries = () => {
@@ -28,6 +29,7 @@ const Countries = () => {
             <section>
                 <header>
                     <h2>Select Region</h2>
+                    <ReturnBtn />
                 </header>
                 <article>
                     <div className="row">

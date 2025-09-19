@@ -4,6 +4,7 @@ import QuizList from "../components/quiz/QuizList"
 import QuizResult from "../components/quiz/QuizResult";
 import LeaderboardList from "../components/quiz/leaderboardList";
 import style from "./quiz.module.css"
+import ReturnBtn from "../components/buttons/ReturnBtn";
 const Quiz = () => {
     const { quizStatus } = useSelector(state => state.region);
     const { status } = useSelector(state => state.region);
@@ -12,6 +13,7 @@ const Quiz = () => {
         <section className={style.article}>
             <header>
                 <h2>World Map Quiz</h2>
+                <ReturnBtn />
             </header>
             {
                 quizStatus === "idle" ?
