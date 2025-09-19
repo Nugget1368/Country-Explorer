@@ -5,17 +5,13 @@ const QuizList = () => {
     const [index, setIndex] = useState(0);
     const [answer, setAnswer] = useState("");
     const [showNext, setShowNext] = useState(false);
-    const [showAnswer, setShowAnswer] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
     const { countries, country, questions } = useSelector(state => state.region);
     const dispatch = useDispatch();
 
     useEffect(() => {
         !country && dispatch(setCountry());
-        setAnswer("");
-        setShowNext(false);
-        setShowAnswer(false);
-        setIsCorrect(false);
+        resetStates();
         if (index > 0) {
             //Remove Country from list to avoid dublicates
             dispatch(removeCountry(country.name.common));
@@ -23,12 +19,18 @@ const QuizList = () => {
         }
     }, [index]);
 
+    const resetStates = () => {
+        setAnswer("");
+        setShowNext(false);
+        setIsCorrect(false);
+    }
+
     const handleClick = () => {
+        // Check if answer is correct
         if (answer.toLowerCase().trim() === country.name.common.toLowerCase()) {
             dispatch(updateScore());
             setIsCorrect(true);
         }
-        setShowAnswer(true);
         setShowNext(true);
     };
 
@@ -47,7 +49,7 @@ const QuizList = () => {
                         <label htmlFor="answer">Answer</label>
                         <input type="text" name="answer" id="answer" value={answer} onChange={(e) => setAnswer(e.target.value)} />
                     </div>
-                    {showAnswer &&
+                    {showNext &&
                         <div className={isCorrect ? "correct green" : "incorrect red"}>
                             {isCorrect ? <h5><strong>Correct</strong></h5> : <h5><strong>Incorrect</strong></h5>}
                             <h6>Correct answer: {country.name.common}</h6>
