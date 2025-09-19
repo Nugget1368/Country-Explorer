@@ -18,7 +18,7 @@ Du ska bygga en Country Explorer i React som använder React Context eller Redux
 
   - [x] "Collection" – navigerar till /collection där användaren kan se sina sparade länder.
 
-  - [ ] "Quiz" – navigerar till /quiz.
+  - [x] "Quiz" – navigerar till /quiz.
 
   - [ ] "Leaderboard" – navigerar till /leaderboard.
 
@@ -151,11 +151,13 @@ För varje deltagare ska minst följande visas:
 
 - [x] Borde inte kunna spara samma land 2 gånger
 - [x] Är ett land redan sparat borde användaren istället kunna "ospara" (ta bort) landet.
+- [ ] Förhindra att ett quiz kan påbörjas utan att användaren fyllt i *username* och valt *region*.
 
 ### Nice to have
 
 - [x] Spara redan hämtade regioner i Sessionstorage för att slippa ladda om dem varje gång.
 - [ ] Borde man slå ihop `RegionSlice.js` med `CountrySlice.js` och ha 2 `Thunks` i samma Slice??
-- [ ] Tydligare visa om användaren hade rätt på frågan eller ej, visa med bock och kryss eller skriv ut 'Correct' eller 'Wrong'.
+- [x] Tydligare visa om användaren hade rätt på frågan eller ej, visa med bock och kryss eller skriv ut 'Correct' eller 'Wrong'.
 - [x] Styling
 - [ ] Förbättra prestandan för SaveLeaderboard, se ovan.
+- [ ] **Tillbaka knapp**
