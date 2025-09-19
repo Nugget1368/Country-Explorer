@@ -151,7 +151,7 @@ För varje deltagare ska minst följande visas:
 
 - [x] Borde inte kunna spara samma land 2 gånger
 - [x] Är ett land redan sparat borde användaren istället kunna "ospara" (ta bort) landet.
-- [ ] Förhindra att ett quiz kan påbörjas utan att användaren fyllt i *username* och valt *region*.
+- [x] Förhindra att ett quiz kan påbörjas utan att användaren fyllt i *username* och valt *region*.
 
 ### Nice to have
 
