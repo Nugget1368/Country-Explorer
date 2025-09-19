@@ -5,28 +5,35 @@ const UserForm = () => {
     const { regions } = useSelector(state => state.region);
     const [region, setRegion] = useState("");
     const [name, setName] = useState("");
+    const [showError, setShowError] = useState(false);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(resetScore());
         dispatch(setSelectedRegion(region));
         dispatch(setUserName(name));
+        setShowError(false);
     }, [region, name]);
 
     const startQuiz = () => {
-        dispatch(fetchRegion(region));
-        dispatch(setQuizStatusStart());
+        if(name !== "" && region !== ""){
+            dispatch(fetchRegion(region));
+            dispatch(setQuizStatusStart());
+        }
+        else{
+            setShowError(true);
+        }
     }
 
     return (
         <article>
             <div>
                 <label htmlFor="name"><strong>Username</strong></label>
-                <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)} />
+                <input className={showError ? "incorrect" : ""} type="text" name="name" id="name" onChange={(e) => setName(e.target.value)} />
             </div>
             <div>
                 <label htmlFor="region"><strong>Pick a region</strong></label>
-                <fieldset>
+                <fieldset className={showError ? "incorrect" : ""}>
                     {regions.map((r) => {
                         return (
                             <div key={r}>
@@ -36,6 +43,9 @@ const UserForm = () => {
                         )
                     })}
                 </fieldset>
+                { showError &&
+                    <p className="red"><strong>Please enter a username and select a region</strong></p>
+                }
             </div>
             <button className="btn btn-primary" onClick={() => startQuiz()}>Start</button>
         </article>
