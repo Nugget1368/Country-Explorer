@@ -24,7 +24,7 @@ const QuizList = () => {
     }, [index]);
 
     const handleClick = () => {
-        if (answer.toLowerCase() === country.name.common.toLowerCase()) {
+        if (answer.toLowerCase().trim() === country.name.common.toLowerCase()) {
             dispatch(updateScore());
             setIsCorrect(true);
         }
