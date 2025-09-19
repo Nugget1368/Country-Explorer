@@ -157,5 +157,5 @@ För varje deltagare ska minst följande visas:
 - [x] Spara redan hämtade regioner i Sessionstorage för att slippa ladda om dem varje gång.
 - [ ] Borde man slå ihop `RegionSlice.js` med `CountrySlice.js` och ha 2 `Thunks` i samma Slice??
 - [ ] Tydligare visa om användaren hade rätt på frågan eller ej, visa med bock och kryss eller skriv ut 'Correct' eller 'Wrong'.
-- [ ] Styling
+- [x] Styling
 - [ ] Förbättra prestandan för SaveLeaderboard, se ovan.

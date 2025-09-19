@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=map_search" />
       <App />
     </Provider>
   </StrictMode>,

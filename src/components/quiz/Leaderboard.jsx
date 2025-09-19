@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { MyLocalStorage } from "../../features/localStorage/storage.js";
 const Leaderboard = ({ region = "" }) => {
     const [leaderboard, setLeaderboard] = useState();
+    const { userName } = useSelector(state => state.region);
     useEffect(() => {
         let board = MyLocalStorage.getSortedLeaderboard(region);
         setLeaderboard(board);
@@ -12,10 +14,14 @@ const Leaderboard = ({ region = "" }) => {
                 <h5>{region.charAt(0).toUpperCase() + region.slice(1)}</h5>
             </header>
             <ul>
-                {leaderboard?.players && leaderboard.players.length > 0 ? leaderboard.players.map((player) => (
-                    <li key={player.userName}>
-                        <label>{player.userName}</label>
-                        <label>Score {player.score} points</label>
+                <li>
+                    <label><strong>Name</strong></label>
+                    <label><strong>Score (points)</strong></label>
+                </li>
+                {leaderboard?.players && leaderboard.players.length > 0 ? leaderboard.players.map((player, index) => (
+                    <li className={player.userName === userName ? "high-score" : ""} key={player.userName}>
+                        <label><strong>{index + 1}. </strong> {player.userName}</label>
+                        <label>{player.score} points</label>
                     </li>
                 ))
                     : <li>Leaderboard is empty...</li>
