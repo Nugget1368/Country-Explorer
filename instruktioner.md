@@ -161,4 +161,4 @@ För varje deltagare ska minst följande visas:
 - [x] Styling
 - [x] Förbättra prestandan för SaveLeaderboard, se ovan.
 - [x] **Tillbaka knapp**
-- [ ] Restart-knapp för Quiz
+- [x] Restart-knapp för Quiz
