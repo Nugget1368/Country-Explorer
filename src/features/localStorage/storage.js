@@ -34,9 +34,7 @@ export class MyLocalStorage {
 
     static getLeaderBoard = () => JSON.parse(localStorage.getItem("leaderboard")) || {};
 
-    static setLeaderBoard = (leaderboard) => { 
-        localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
-    }
+    static setLeaderBoard = (leaderboard) => localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
 
     static saveLeaderboard = ({ userName, region, score }) => {
         let leaderboard = this.getLeaderBoard();

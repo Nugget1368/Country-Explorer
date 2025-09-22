@@ -21,6 +21,9 @@ const QuizResult = () => {
                     <h3 className={percentage && percentage > 75 ? "green" : percentage > 50 ? "yellow" : "red"}>Your score: {score}/{questions}, {percentage}%</h3>
                 </header>
             </article>
+            <header>
+                <h3>Leaderboard</h3>
+            </header>
             <LeaderboardList />
         </section>
     )
