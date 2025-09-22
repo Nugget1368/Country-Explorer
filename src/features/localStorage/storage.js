@@ -32,18 +32,34 @@ export class MyLocalStorage {
         return true;
     };
 
-    static getLeaderBoard = () => JSON.parse(localStorage.getItem("leaderboard")) || [{ region: "", players: [] }];
+    static getLeaderBoard = () => JSON.parse(localStorage.getItem("leaderboard")) || {};
 
-    static setLeaderBoard = (leaderboard) => localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+    static setLeaderBoard = (leaderboard) => { 
+        localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+    }
 
-    static saveLeaderboard = ({ userName = "", region = "", score = 0 }) => {
+    static saveLeaderboard = ({ userName, region, score }) => {
         let leaderboard = this.getLeaderBoard();
+        if (!leaderboard[region]) {
+            leaderboard[region] = { region: region, players: [{ userName: userName, score: score }] };
+        }
+        else {
+            let existingPlayer = leaderboard[region].players.find(player => player.userName === userName);
+            if(existingPlayer){
+                existingPlayer.score = existingPlayer.score <= score ? score : existingPlayer.score;
+            }
+            else{
+                leaderboard[region].players.push({ userName: userName, score: score });
+            }
+        }
+        leaderboard[region].players = this.sortPlayers(leaderboard[region].players);
+        this.setLeaderBoard(leaderboard);
+        return true;
+        /*
         let regionExists = leaderboard.find(board => board.region === region);
         let localRegion = regionExists ? regionExists : { region, players: [] };
 
-        let playerExists = localRegion.players.find(player => player.userName === userName);
         if (playerExists) {
-            playerExists.score = playerExists.score < score ? score : playerExists.score;
             console.log("Player score: " + playerExists.score);
             console.log("Score: " + score);
         }
@@ -54,7 +70,7 @@ export class MyLocalStorage {
         leaderboard = leaderboard.filter(board => board.region !== region);
         leaderboard.push(localRegion);
         this.setLeaderBoard(leaderboard);
-        return true;
+        */
     }
 
     static sortPlayers = (players) => {
@@ -64,12 +80,12 @@ export class MyLocalStorage {
 
     static getSortedLeaderboard = (region) => {
         let leaderboard = this.getLeaderBoard();
-        let board = leaderboard.find(board => board.region === region);
-        if (board) {
-            board.players = this.sortPlayers(board.players);
-            return board;
+        // let board = leaderboard.find(board => board.region === region);
+        if (leaderboard[region]) {
+            leaderboard[region].players = this.sortPlayers(leaderboard[region].players);
+            return leaderboard[region];
         }
-        return [];
+        return { region, players: [] };
     }
 }
 

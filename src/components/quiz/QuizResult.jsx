@@ -11,7 +11,7 @@ const QuizResult = () => {
 
     useEffect(() => {
         // Save to localStorage
-        MyLocalStorage.saveLeaderboard({ userName, region, score });
+        // MyLocalStorage.saveLeaderboard({ userName, region, score });
         getPercentage();
     }, []);
 

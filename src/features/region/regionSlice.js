@@ -55,6 +55,14 @@ const regionSlice = createSlice({
         resetScore: (state) => {
             state.score = 0;
         },
+        resetPlayer: (state) => {
+            state.userName = "";
+            state.score = 0;
+            state.region = "";
+            console.log(state.userName);
+            console.log(state.score);
+            console.log(state.region);
+        },
         setQuizStatusIdle: (state) => {
             state.quizStatus = "idle";
         },
@@ -91,5 +99,6 @@ export const {
     removeCountry,
     setSelectedRegion,
     resetScore,
-    setQuizStatusIdle } = regionSlice.actions
+    setQuizStatusIdle,
+    resetPlayer } = regionSlice.actions
 export default regionSlice.reducer;

@@ -1,12 +1,13 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react";
 import { updateScore, setQuizStatusFinished, setCountry, removeCountry } from "../../features/region/regionSlice";
+import {MyLocalStorage} from "../../features/localStorage/storage";
 const QuizList = () => {
     const [index, setIndex] = useState(0);
     const [answer, setAnswer] = useState("");
     const [showNext, setShowNext] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
-    const { countries, country, questions } = useSelector(state => state.region);
+    const { countries, country, questions, userName, region, score } = useSelector(state => state.region);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -34,7 +35,16 @@ const QuizList = () => {
         setShowNext(true);
     };
 
-    const nextQuestion = () => index === questions ? dispatch(setQuizStatusFinished()) : setIndex(index + 1);
+    const nextQuestion = () => {
+        if (index === questions) {
+            MyLocalStorage.saveLeaderboard({ userName, region, score });
+            dispatch(setQuizStatusFinished())
+
+        }
+        else {
+            setIndex(index + 1)
+        }
+    };
 
     return (
         <article>
