@@ -3,12 +3,13 @@ import { fetchRegion, setCountries } from '../features/region/regionSlice.js'
 import { MySessionStorage } from '../features/localStorage/storage.js'
 import { useEffect, useState } from 'react'
 import CountryList from '../components/CountryList'
+import ReturnBtn from "../components/buttons/ReturnBtn";
 
 
 const Countries = () => {
     const { countries, status, error } = useSelector(state => state.region);
     const dispatch = useDispatch();
-    const regions = ['europe', 'africa', 'asia', 'america', 'oceania'];
+    const regions = ["europe", "africa", "asia", "america", "oceania"];
     const [region, setRegion] = useState("");
 
     const handleClick = async (_region) => {
@@ -28,10 +29,11 @@ const Countries = () => {
             <section>
                 <header>
                     <h2>Select Region</h2>
+                    <ReturnBtn />
                 </header>
                 <article>
-                    <div>
-                        {regions.map(r => <button key={r} onClick={() => handleClick(r)} className='btn'>{r.charAt(0).toUpperCase() + r.slice(1)}</button>)}
+                    <div className="row">
+                        {regions.map(r => <button key={r} onClick={() => handleClick(r)} className="btn btn-primary">{r.charAt(0).toUpperCase() + r.slice(1)}</button>)}
                     </div>
                 </article>
             </section>

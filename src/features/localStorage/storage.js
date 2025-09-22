@@ -31,6 +31,43 @@ export class MyLocalStorage {
         localStorage.setItem(SAVED_COUNTRIES_KEY, JSON.stringify(newList));
         return true;
     };
+
+    static getLeaderBoard = () => JSON.parse(localStorage.getItem("leaderboard")) || {};
+
+    static setLeaderBoard = (leaderboard) => localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+
+    static saveLeaderboard = ({ userName, region, score }) => {
+        let leaderboard = this.getLeaderBoard();
+        if (!leaderboard[region]) {
+            leaderboard[region] = { region: region, players: [{ userName: userName, score: score }] };
+        }
+        else {
+            let existingPlayer = leaderboard[region].players.find(player => player.userName === userName);
+            if(existingPlayer){
+                existingPlayer.score = existingPlayer.score <= score ? score : existingPlayer.score;
+            }
+            else{
+                leaderboard[region].players.push({ userName: userName, score: score });
+            }
+        }
+        leaderboard[region].players = this.sortPlayers(leaderboard[region].players);
+        this.setLeaderBoard(leaderboard);
+        return true;
+    }
+
+    static sortPlayers = (players) => {
+        players.sort((a, b) => b.score - a.score);
+        return players.length > 5 ? players.slice(0, 5) : players;
+    }
+
+    static getSortedLeaderboard = (region) => {
+        let leaderboard = this.getLeaderBoard();
+        if (leaderboard[region]) {
+            leaderboard[region].players = this.sortPlayers(leaderboard[region].players);
+            return leaderboard[region];
+        }
+        return { region, players: [] };
+    }
 }
 
 export class MySessionStorage {
