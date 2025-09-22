@@ -23,11 +23,7 @@ const Quiz = () => {
                 <ReturnBtn />
             </header>
             {
-                quizStatus === "idle" ?
-                    <>
-                        <UserForm />
-                        <LeaderboardList />
-                    </>
+                quizStatus === "idle" ? <UserForm />
                     : quizStatus === "start" ?
                         status === "succeeded" && <QuizList />
                         : quizStatus === "finished" ? <QuizResult />

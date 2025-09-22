@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchRegion, setUserName, setQuizStatusStart, setSelectedRegion, resetScore } from "../../features/region/regionSlice.js";
+import { fetchRegion, setUserName, setQuizStatusStart, setSelectedRegion, resetScore, resetPlayer } from "../../features/region/regionSlice.js";
 import { useEffect, useState } from "react";
 const UserForm = () => {
     const { regions } = useSelector(state => state.region);
@@ -9,18 +9,20 @@ const UserForm = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(resetScore());
-        dispatch(setSelectedRegion(region));
-        dispatch(setUserName(name));
+        dispatch(resetPlayer());
+        setName("");
+        setRegion("");
         setShowError(false);
-    }, [region, name]);
+    }, []);
 
     const startQuiz = () => {
-        if(name !== "" && region !== ""){
+        if (name !== "" && region !== "") {
+            dispatch(setSelectedRegion(region));
+            dispatch(setUserName(name));
             dispatch(fetchRegion(region));
             dispatch(setQuizStatusStart());
         }
-        else{
+        else {
             setShowError(true);
         }
     }
@@ -43,7 +45,7 @@ const UserForm = () => {
                         )
                     })}
                 </fieldset>
-                { showError &&
+                {showError &&
                     <p className="red"><strong>Please enter a username and select a region</strong></p>
                 }
             </div>

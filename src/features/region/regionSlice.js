@@ -25,7 +25,7 @@ const regionSlice = createSlice({
         userName: "",
         regions: ["europe", "africa", "asia", "america", "oceania"],
         region: "",
-        questions: 2,
+        questions: 15,
         score: 0,
         quizStatus: "idle",
     },
@@ -45,6 +45,7 @@ const regionSlice = createSlice({
         },
         removeCountry: (state, action) => {
             state.countries = state.countries.filter(country => country.name.common !== action.payload);
+            console.log(state.countries);
         },
         setUserName: (state, action) => {
             state.userName = action.payload;
@@ -54,6 +55,11 @@ const regionSlice = createSlice({
         },
         resetScore: (state) => {
             state.score = 0;
+        },
+        resetPlayer: (state) => {
+            state.userName = "";
+            state.score = 0;
+            state.region = "";
         },
         setQuizStatusIdle: (state) => {
             state.quizStatus = "idle";
@@ -91,5 +97,6 @@ export const {
     removeCountry,
     setSelectedRegion,
     resetScore,
-    setQuizStatusIdle } = regionSlice.actions
+    setQuizStatusIdle,
+    resetPlayer } = regionSlice.actions
 export default regionSlice.reducer;

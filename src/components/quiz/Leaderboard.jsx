@@ -21,7 +21,7 @@ const Leaderboard = ({ region = "" }) => {
                 {leaderboard?.players && leaderboard.players.length > 0 ? leaderboard.players.map((player, index) => (
                     <li className={player.userName === userName ? "high-score" : ""} key={player.userName}>
                         <label><strong>{index + 1}. </strong> {player.userName}</label>
-                        <label>{player.score} points</label>
+                        <label>{player.score}p</label>
                     </li>
                 ))
                     : <li>Leaderboard is empty...</li>

@@ -3,15 +3,13 @@ import { useSelector } from "react-redux"
 import { MyLocalStorage } from "../../features/localStorage/storage.js";
 import LeaderboardList from "./leaderboardList.jsx";
 const QuizResult = () => {
-    const { userName, score, region, questions } = useSelector(state => state.region);
+    const { score, questions } = useSelector(state => state.region);
     const [percentage, setPercentage] = useState(0);
     const getPercentage = () => {
         setPercentage(Math.floor((score / questions) * 100));
     };
 
     useEffect(() => {
-        // Save to localStorage
-        MyLocalStorage.saveLeaderboard({ userName, region, score });
         getPercentage();
     }, []);
 
@@ -23,6 +21,9 @@ const QuizResult = () => {
                     <h3 className={percentage && percentage > 75 ? "green" : percentage > 50 ? "yellow" : "red"}>Your score: {score}/{questions}, {percentage}%</h3>
                 </header>
             </article>
+            <header>
+                <h3>Leaderboard</h3>
+            </header>
             <LeaderboardList />
         </section>
     )
