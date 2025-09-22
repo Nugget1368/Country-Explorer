@@ -19,7 +19,9 @@ const Quiz = () => {
     return (
         <section className={style.article}>
             <header>
-                <h2>World Map Quiz</h2>
+                {quizStatus === "idle" &&
+                    <h2>World Map Quiz</h2>
+                }
                 <ReturnBtn />
             </header>
             {

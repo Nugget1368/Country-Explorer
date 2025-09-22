@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react";
 import { updateScore, setQuizStatusFinished, setCountry, removeCountry } from "../../features/region/regionSlice";
 import { MyLocalStorage } from "../../features/localStorage/storage";
+import RestartQuizBtn from "../buttons/RestartQuizBtn";
 const QuizList = () => {
     const [index, setIndex] = useState(0);
     const [answer, setAnswer] = useState("");
@@ -47,6 +48,7 @@ const QuizList = () => {
     return (
         <article>
             <header>
+                <RestartQuizBtn />
                 <h3>Quiestion {index + 1}</h3>
                 <h4>Which country is this?</h4>
             </header>
