@@ -162,3 +162,4 @@ För varje deltagare ska minst följande visas:
 - [x] Förbättra prestandan för SaveLeaderboard, se ovan.
 - [x] **Tillbaka knapp**
 - [x] Restart-knapp för Quiz
+- [ ] Darkmode
