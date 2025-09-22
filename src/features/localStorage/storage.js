@@ -55,22 +55,6 @@ export class MyLocalStorage {
         leaderboard[region].players = this.sortPlayers(leaderboard[region].players);
         this.setLeaderBoard(leaderboard);
         return true;
-        /*
-        let regionExists = leaderboard.find(board => board.region === region);
-        let localRegion = regionExists ? regionExists : { region, players: [] };
-
-        if (playerExists) {
-            console.log("Player score: " + playerExists.score);
-            console.log("Score: " + score);
-        }
-        else {
-            localRegion.players.push({ userName, score });
-        }
-        localRegion.players = this.sortPlayers(localRegion.players);
-        leaderboard = leaderboard.filter(board => board.region !== region);
-        leaderboard.push(localRegion);
-        this.setLeaderBoard(leaderboard);
-        */
     }
 
     static sortPlayers = (players) => {
@@ -80,7 +64,6 @@ export class MyLocalStorage {
 
     static getSortedLeaderboard = (region) => {
         let leaderboard = this.getLeaderBoard();
-        // let board = leaderboard.find(board => board.region === region);
         if (leaderboard[region]) {
             leaderboard[region].players = this.sortPlayers(leaderboard[region].players);
             return leaderboard[region];

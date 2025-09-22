@@ -59,9 +59,6 @@ const regionSlice = createSlice({
             state.userName = "";
             state.score = 0;
             state.region = "";
-            console.log(state.userName);
-            console.log(state.score);
-            console.log(state.region);
         },
         setQuizStatusIdle: (state) => {
             state.quizStatus = "idle";

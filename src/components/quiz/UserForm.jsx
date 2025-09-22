@@ -17,7 +17,6 @@ const UserForm = () => {
 
     const startQuiz = () => {
         if (name !== "" && region !== "") {
-            dispatch(resetScore());
             dispatch(setSelectedRegion(region));
             dispatch(setUserName(name));
             dispatch(fetchRegion(region));
