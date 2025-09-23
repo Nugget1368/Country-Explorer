@@ -37,12 +37,7 @@ const regionSlice = createSlice({
         country: null,
         status: "idle",
         error: null,
-        userName: "",
-        regions: ["europe", "africa", "asia", "america", "oceania"],
-        region: "",
-        questions: 15,
-        score: 0,
-        quizStatus: "idle",
+        regions: ["europe", "africa", "asia", "america", "oceania"]
     },
     reducers: {
         setSelectedRegion: (state, action) => {
@@ -62,31 +57,9 @@ const regionSlice = createSlice({
             state.countries = state.countries.filter(country => country.name.common !== action.payload);
             console.log(state.countries);
         },
-        /* Extract this? */
-        setUserName: (state, action) => {
-            state.userName = action.payload;
-        },
-        updateScore: (state) => {
-            state.score = state.score + 1;
-        },
-        resetScore: (state) => {
-            state.score = 0;
-        },
-        resetPlayer: (state) => {
-            state.userName = "";
-            state.score = 0;
-            state.region = "";
-        },
-        setQuizStatusIdle: (state) => {
-            state.quizStatus = "idle";
-        },
-        setQuizStatusStart: (state) => {
-            state.quizStatus = "start";
-        },
-        setQuizStatusFinished: (state) => {
-            state.quizStatus = "finished";
-        },
-        /* Extract this? */
+        resetCountry: (state) => {
+            state.country = null;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -117,14 +90,7 @@ const regionSlice = createSlice({
 
 export const {
     setCountries,
-    setUserName,
-    updateScore,
-    setQuizStatusStart,
-    setQuizStatusFinished,
     setCountry,
     removeCountry,
-    setSelectedRegion,
-    resetScore,
-    setQuizStatusIdle,
-    resetPlayer } = regionSlice.actions
+    resetCountry } = regionSlice.actions
 export default regionSlice.reducer;

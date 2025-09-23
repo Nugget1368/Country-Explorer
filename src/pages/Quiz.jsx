@@ -7,9 +7,9 @@ import style from "./quiz.module.css"
 import ReturnBtn from "../components/buttons/ReturnBtn";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setQuizStatusIdle } from "../features/region/regionSlice";
+import { setQuizStatusIdle } from "../features/quiz/quizSlice";
 const Quiz = () => {
-    const { quizStatus } = useSelector(state => state.region);
+    const { quizStatus } = useSelector(state => state.quiz);
     const { status } = useSelector(state => state.region);
     let dispatch = useDispatch();
     useEffect(() => {

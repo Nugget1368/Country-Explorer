@@ -2,15 +2,21 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux"
 import LeaderboardList from "./leaderboardList.jsx";
 import RestartQuizBtn from "../buttons/RestartQuizBtn.jsx";
+import { useDispatch } from "react-redux";
+import { resetCountry } from "../../features/region/regionSlice.js";
 const QuizResult = () => {
-    const { score, questions } = useSelector(state => state.region);
+    const { score, questions } = useSelector(state => state.quiz);
     const [percentage, setPercentage] = useState(0);
+    let dispatch = useDispatch();
     const getPercentage = () => {
         setPercentage(Math.floor((score / questions) * 100));
     };
 
     useEffect(() => {
         getPercentage();
+        return () => {
+            dispatch(resetCountry());
+        }
     }, []);
 
     return (
