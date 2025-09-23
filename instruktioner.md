@@ -163,3 +163,4 @@ För varje deltagare ska minst följande visas:
 - [x] **Tillbaka knapp**
 - [x] Restart-knapp för Quiz
 - [ ] Darkmode
+- [ ] Uppdatera endpoint?
