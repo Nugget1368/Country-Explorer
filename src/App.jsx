@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/Country-Explorer" element={<Home />} />
         <Route path="/countries" element={<Countries />} />
         <Route path="/countries/:name" element={<Country />} />
         <Route path="/collection" element={<Collection />} />
