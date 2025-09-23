@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react";
-import { updateScore, setQuizStatusFinished, setCountry, removeCountry } from "../../features/region/regionSlice";
+import { updateScore, setQuizStatusFinished } from "../../features/quiz/quizSlice";
+import { setCountry, removeCountry } from "../../features/region/regionSlice";
 import { MyLocalStorage } from "../../features/localStorage/storage";
 import RestartQuizBtn from "../buttons/RestartQuizBtn";
 const QuizList = () => {
@@ -8,7 +9,8 @@ const QuizList = () => {
     const [answer, setAnswer] = useState("");
     const [showNext, setShowNext] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
-    const { country, questions, userName, region, score } = useSelector(state => state.region);
+    const { country } = useSelector(state => state.region);
+    const { questions, userName, region, score } = useSelector(state => state.quiz);
     const dispatch = useDispatch();
 
     useEffect(() => {

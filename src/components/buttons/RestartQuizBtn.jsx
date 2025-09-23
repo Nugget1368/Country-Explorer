@@ -1,5 +1,5 @@
 import styles from './ReturnBtn.module.css'
-import { setQuizStatusIdle } from "../../features/region/regionSlice.js"
+import { setQuizStatusIdle } from "../../features/quiz/quizSlice.js"
 import { useDispatch } from "react-redux";
 
 const RestartQuizBtn = () => {
