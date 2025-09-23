@@ -3,12 +3,13 @@ import Leaderboard from "./leaderboard.jsx";
 import ReturnBtn from "../buttons/ReturnBtn.jsx";
 const LeaderboardList = () => {
     const { regions } = useSelector(state => state.region);
+    const { region } = useSelector(state => state.quiz);
     return (
         <section>
-            {regions.map(region => {
+            {regions.map(r => {
                 return (
-                    <article key={region}>
-                        <Leaderboard region={region} />
+                    <article key={r} className={r === region ? "correct" : ""}>
+                        <Leaderboard region={r} />
                     </article>
                 )
             })}

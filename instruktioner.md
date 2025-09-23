@@ -156,7 +156,7 @@ För varje deltagare ska minst följande visas:
 ### Nice to have
 
 - [x] Spara redan hämtade regioner i Sessionstorage för att slippa ladda om dem varje gång.
-- [ ] Borde man slå ihop `RegionSlice.js` med `CountrySlice.js` och ha 2 `Thunks` i samma Slice??
+- [x] Borde man slå ihop `RegionSlice.js` med `CountrySlice.js` och ha 2 `Thunks` i samma Slice??
 - [x] Tydligare visa om användaren hade rätt på frågan eller ej, visa med bock och kryss eller skriv ut 'Correct' eller 'Wrong'.
 - [x] Styling
 - [x] Förbättra prestandan för SaveLeaderboard, se ovan.
@@ -164,5 +164,4 @@ För varje deltagare ska minst följande visas:
 - [x] Restart-knapp för Quiz
 - [ ] Darkmode
 - [ ] Uppdatera endpoint?
-- [ ] **Uppdatera RemoveCountry**
 - [x] Behåll countries-state i countryList för att inte behöva ladda om  countries efter att man valt att se mer av ett särskilt. Kolla resetState.

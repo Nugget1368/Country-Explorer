@@ -14,12 +14,12 @@ const QuizList = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(setCountry());
-        resetStates();
         if (index > 0) {
             //Remove Country from list to avoid dublicates
             dispatch(removeCountry(country.name.common));
         }
+        dispatch(setCountry());
+        resetStates();
     }, [index]);
 
     const resetStates = () => {
