@@ -164,3 +164,4 @@ För varje deltagare ska minst följande visas:
 - [x] Restart-knapp för Quiz
 - [ ] Darkmode
 - [ ] Uppdatera endpoint?
+- [ ] Uppdatera RemoveCountry

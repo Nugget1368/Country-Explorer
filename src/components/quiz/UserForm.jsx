@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchRegion, setUserName, setQuizStatusStart, setSelectedRegion, resetScore, resetPlayer } from "../../features/region/regionSlice.js";
+import { fetchRegion, setUserName, setQuizStatusStart, setSelectedRegion, resetPlayer } from "../../features/region/regionSlice.js";
 import { useEffect, useState } from "react";
 const UserForm = () => {
     const { regions } = useSelector(state => state.region);
