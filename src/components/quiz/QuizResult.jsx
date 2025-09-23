@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 import LeaderboardList from "./leaderboardList.jsx";
 import RestartQuizBtn from "../buttons/RestartQuizBtn.jsx";
 import { useDispatch } from "react-redux";
-import { resetCountry } from "../../features/region/regionSlice.js";
+import { resetStates as resetStatesRegion } from "../../features/region/regionSlice.js";
 const QuizResult = () => {
     const { score, questions } = useSelector(state => state.quiz);
     const [percentage, setPercentage] = useState(0);
@@ -15,7 +15,7 @@ const QuizResult = () => {
     useEffect(() => {
         getPercentage();
         return () => {
-            dispatch(resetCountry());
+            dispatch(resetStatesRegion());
         }
     }, []);
 
