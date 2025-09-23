@@ -47,6 +47,7 @@ const regionSlice = createSlice({
             state.countries = state.countries.filter(country => country.name.common !== action.payload);
             console.log(state.countries);
         },
+        /* Extract this? */
         setUserName: (state, action) => {
             state.userName = action.payload;
         },
@@ -70,6 +71,7 @@ const regionSlice = createSlice({
         setQuizStatusFinished: (state) => {
             state.quizStatus = "finished";
         },
+        /* Extract this? */
     },
     extraReducers: (builder) => {
         builder
