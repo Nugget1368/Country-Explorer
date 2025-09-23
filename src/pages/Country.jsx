@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
-import { fetchCountry, setCountry } from "../features/country/countrySlice.js";
+import { fetchCountry, resetCountry, setCountry } from "../features/region/regionSlice.js";
 import { useDispatch, useSelector } from "react-redux";
 import { MyLocalStorage } from "../features/localStorage/storage.js";
 import ReturnBtn from "../components/buttons/ReturnBtn";
@@ -8,12 +8,15 @@ import ReturnBtn from "../components/buttons/ReturnBtn";
 const Country = () => {
     let params = useParams()
     const dispatch = useDispatch()
-    let { country, status, error } = useSelector(state => state.country)
+    let { country, status, error } = useSelector(state => state.region);
     const [inStorage, setInStorage] = useState(MyLocalStorage.getCountry(params.name) ? true : false);
 
     useEffect(() => {
         inStorage ? dispatch(setCountry(MyLocalStorage.getCountry(params.name))) : dispatch(fetchCountry(params.name));
         setInStorage(MyLocalStorage.getCountry(params.name) ? true : false);
+        return () => {
+            dispatch(resetCountry());
+        }
     }, [params.name, dispatch])
 
     const saveCountry = () => {

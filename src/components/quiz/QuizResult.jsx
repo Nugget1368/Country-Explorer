@@ -1,22 +1,29 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux"
-import { MyLocalStorage } from "../../features/localStorage/storage.js";
 import LeaderboardList from "./leaderboardList.jsx";
+import RestartQuizBtn from "../buttons/RestartQuizBtn.jsx";
+import { useDispatch } from "react-redux";
+import { resetStates as resetStatesRegion } from "../../features/region/regionSlice.js";
 const QuizResult = () => {
-    const { score, questions } = useSelector(state => state.region);
+    const { score, questions } = useSelector(state => state.quiz);
     const [percentage, setPercentage] = useState(0);
+    let dispatch = useDispatch();
     const getPercentage = () => {
         setPercentage(Math.floor((score / questions) * 100));
     };
 
     useEffect(() => {
         getPercentage();
+        return () => {
+            dispatch(resetStatesRegion());
+        }
     }, []);
 
     return (
         <section>
             <article>
                 <header>
+                    <RestartQuizBtn />
                     <h2>Result</h2>
                     <h3 className={percentage && percentage > 75 ? "green" : percentage > 50 ? "yellow" : "red"}>Your score: {score}/{questions}, {percentage}%</h3>
                 </header>

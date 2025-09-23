@@ -15,6 +15,21 @@ export const fetchRegion = createAsyncThunk(
     }
 );
 
+export const fetchCountry = createAsyncThunk(
+    "country/fetchCountry",
+    async (country) => {
+        try {
+            const response = await fetch(
+                `https://restcountries.com/v3.1/name/${country}?fields=name,capital,currencies,flags,population,region,maps`
+            );
+            return response.json();
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    }
+);
+
 const regionSlice = createSlice({
     name: "region",
     initialState: {
@@ -22,12 +37,7 @@ const regionSlice = createSlice({
         country: null,
         status: "idle",
         error: null,
-        userName: "",
-        regions: ["europe", "africa", "asia", "america", "oceania"],
-        region: "",
-        questions: 15,
-        score: 0,
-        quizStatus: "idle",
+        regions: ["europe", "africa", "asia", "america", "oceania"]
     },
     reducers: {
         setSelectedRegion: (state, action) => {
@@ -47,29 +57,15 @@ const regionSlice = createSlice({
             state.countries = state.countries.filter(country => country.name.common !== action.payload);
             console.log(state.countries);
         },
-        setUserName: (state, action) => {
-            state.userName = action.payload;
+        resetCountry: (state) => {
+            state.country = null;
         },
-        updateScore: (state) => {
-            state.score = state.score + 1;
-        },
-        resetScore: (state) => {
-            state.score = 0;
-        },
-        resetPlayer: (state) => {
-            state.userName = "";
-            state.score = 0;
-            state.region = "";
-        },
-        setQuizStatusIdle: (state) => {
-            state.quizStatus = "idle";
-        },
-        setQuizStatusStart: (state) => {
-            state.quizStatus = "start";
-        },
-        setQuizStatusFinished: (state) => {
-            state.quizStatus = "finished";
-        },
+        resetStates: (state) => {
+            state.countries = [];
+            state.country = null;
+            state.status = "idle";
+            state.error = null;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -83,20 +79,25 @@ const regionSlice = createSlice({
             .addCase(fetchRegion.rejected, (state, action) => {
                 state.status = "failed";
                 state.error = action.error.message;
+            })
+            .addCase(fetchCountry.pending, (state) => {
+                state.status = "loading";
+            })
+            .addCase(fetchCountry.fulfilled, (state, action) => {
+                state.status = "succeeded";
+                state.country = action.payload[0];
+            })
+            .addCase(fetchCountry.rejected, (state, action) => {
+                state.status = "failed";
+                state.error = action.error.message;
             });
     },
 });
 
 export const {
     setCountries,
-    setUserName,
-    updateScore,
-    setQuizStatusStart,
-    setQuizStatusFinished,
     setCountry,
     removeCountry,
-    setSelectedRegion,
-    resetScore,
-    setQuizStatusIdle,
-    resetPlayer } = regionSlice.actions
+    resetStates,
+    resetCountry } = regionSlice.actions
 export default regionSlice.reducer;

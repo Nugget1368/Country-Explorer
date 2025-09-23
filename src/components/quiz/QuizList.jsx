@@ -1,22 +1,25 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react";
-import { updateScore, setQuizStatusFinished, setCountry, removeCountry } from "../../features/region/regionSlice";
+import { updateScore, setQuizStatusFinished } from "../../features/quiz/quizSlice";
+import { setCountry, removeCountry } from "../../features/region/regionSlice";
 import { MyLocalStorage } from "../../features/localStorage/storage";
+import RestartQuizBtn from "../buttons/RestartQuizBtn";
 const QuizList = () => {
     const [index, setIndex] = useState(0);
     const [answer, setAnswer] = useState("");
     const [showNext, setShowNext] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
-    const { country, questions, userName, region, score } = useSelector(state => state.region);
+    const { country } = useSelector(state => state.region);
+    const { questions, userName, region, score } = useSelector(state => state.quiz);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(setCountry());
-        resetStates();
         if (index > 0) {
             //Remove Country from list to avoid dublicates
             dispatch(removeCountry(country.name.common));
         }
+        dispatch(setCountry());
+        resetStates();
     }, [index]);
 
     const resetStates = () => {
@@ -47,6 +50,7 @@ const QuizList = () => {
     return (
         <article>
             <header>
+                <RestartQuizBtn />
                 <h3>Quiestion {index + 1}</h3>
                 <h4>Which country is this?</h4>
             </header>

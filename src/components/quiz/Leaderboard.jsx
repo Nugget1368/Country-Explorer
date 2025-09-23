@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { MyLocalStorage } from "../../features/localStorage/storage.js";
 const Leaderboard = ({ region = "" }) => {
     const [leaderboard, setLeaderboard] = useState();
-    const { userName } = useSelector(state => state.region);
+    const { userName } = useSelector(state => state.quiz);
     useEffect(() => {
         let board = MyLocalStorage.getSortedLeaderboard(region);
         setLeaderboard(board);
