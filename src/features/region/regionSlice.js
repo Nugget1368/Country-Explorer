@@ -57,6 +57,9 @@ const regionSlice = createSlice({
             state.countries = state.countries.filter(country => country.name.common !== action.payload);
             console.log(state.countries);
         },
+        resetCountry: (state) => {
+            state.country = null;
+        },
         resetStates: (state) => {
             state.countries = [];
             state.country = null;
@@ -95,5 +98,6 @@ export const {
     setCountries,
     setCountry,
     removeCountry,
-    resetStates } = regionSlice.actions
+    resetStates,
+    resetCountry } = regionSlice.actions
 export default regionSlice.reducer;
