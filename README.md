@@ -44,7 +44,7 @@ När scriptet `gh-pages -d dist` körs så kommer mappen `dist` pushas till gith
 
 > Det rekommenderas att man har en branch som endast är avsedd för deployning.
 
-4. Kör deploy kommandot i terminalen, `npm run deploy`. När detta kommandot körs så kommer även kommandot `gh-pages -d dist` ifrån det tidigare steget (steg 3.) att köras.
+4. **Kör deploy** kommandot i terminalen, `npm run deploy`. När detta kommandot körs så kommer även kommandot `gh-pages -d dist` ifrån det tidigare steget (steg 3.) att köras.
 
 Varje gång du vill göra en uppdatering till din deployade branch så kör du kommandona:
 
