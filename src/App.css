@@ -36,6 +36,7 @@ h3 {
 
 h4,
 h5 {
+  margin: 0.7rem;
   font-size: 1.2rem;
 }
 h6 {
@@ -96,6 +97,11 @@ article,
   padding: 2rem;
   box-sizing: border-box;
   max-width: 900px;
+  overflow-wrap: break-word;
+}
+
+.card + .card {
+  width: 22rem;
 }
 
 .row {
