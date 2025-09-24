@@ -52,7 +52,6 @@ const QuizList = () => {
     return (
         <article>
             <header>
-                <RestartQuizBtn />
                 <h3>Quiestion {index + 1}</h3>
                 <h4>Which country is this?</h4>
             </header>
@@ -73,6 +72,7 @@ const QuizList = () => {
                         <button className="btn btn-primary" onClick={nextQuestion}>Next</button>
                         : <button className="btn btn-primary" onClick={handleClick}>Answer</button>
                     }
+                    <RestartQuizBtn />
                 </>
             }
         </article>
