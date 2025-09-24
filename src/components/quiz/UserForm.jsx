@@ -14,6 +14,7 @@ const UserForm = () => {
         setName("");
         setRegion("");
         setShowError(false);
+        
     }, []);
 
     const startQuiz = () => {
@@ -31,8 +32,8 @@ const UserForm = () => {
     return (
         <article>
             <div>
-                <label htmlFor="name"><strong>Username</strong></label>
-                <input className={showError ? "incorrect" : ""} type="text" name="name" id="name" onChange={(e) => setName(e.target.value)} />
+                <label htmlFor="name"><strong>Name</strong></label>
+                <input placeholder="Player name" autoFocus className={showError ? "incorrect" : ""} type="text" name="name" id="name" onChange={(e) => setName(e.target.value)} />
             </div>
             <div>
                 <label htmlFor="region"><strong>Pick a region</strong></label>

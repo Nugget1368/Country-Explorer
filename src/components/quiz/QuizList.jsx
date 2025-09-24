@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { updateScore, setQuizStatusFinished } from "../../features/quiz/quizSlice";
 import { setCountry, removeCountry } from "../../features/region/regionSlice";
 import { MyLocalStorage } from "../../features/localStorage/storage";
@@ -12,6 +12,7 @@ const QuizList = () => {
     const { country } = useSelector(state => state.region);
     const { questions, userName, region, score } = useSelector(state => state.quiz);
     const dispatch = useDispatch();
+    const inputRef = useRef(null);
 
     useEffect(() => {
         if (index > 0) {
@@ -20,6 +21,7 @@ const QuizList = () => {
         }
         dispatch(setCountry());
         resetStates();
+        inputRef.current?.focus();
     }, [index]);
 
     const resetStates = () => {
@@ -50,7 +52,6 @@ const QuizList = () => {
     return (
         <article>
             <header>
-                <RestartQuizBtn />
                 <h3>Quiestion {index + 1}</h3>
                 <h4>Which country is this?</h4>
             </header>
@@ -59,7 +60,7 @@ const QuizList = () => {
                     <img src={country.flags.png} alt={country.flags.alt} />
                     <div>
                         <label htmlFor="answer">Answer</label>
-                        <input type="text" name="answer" id="answer" value={answer} onChange={(e) => setAnswer(e.target.value)} />
+                        <input ref={inputRef} placeholder="Country" type="text" name="answer" id="answer" value={answer} onChange={(e) => setAnswer(e.target.value)} />
                     </div>
                     {showNext &&
                         <div className={isCorrect ? "correct green" : "incorrect red"}>
@@ -71,6 +72,7 @@ const QuizList = () => {
                         <button className="btn btn-primary" onClick={nextQuestion}>Next</button>
                         : <button className="btn btn-primary" onClick={handleClick}>Answer</button>
                     }
+                    <RestartQuizBtn />
                 </>
             }
         </article>
