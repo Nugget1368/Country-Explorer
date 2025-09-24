@@ -10,10 +10,10 @@ const Home = () => {
             </header>
             <article>
                 <nav>
-                    <Link className='btn btn-primary' to="/countries"><p>Study countries</p></Link>
-                    <Link className='btn btn-primary' to="/collection"><p>My Collection</p></Link>
-                    <Link className='btn btn-primary' to="/quiz"><p>Quiz</p></Link>
-                    <Link className='btn btn-primary' to="/leaderboard"><p>Leaderboard</p></Link>
+                    <Link className='btn btn-primary' to="/Country-Explorer/countries"><p>Study countries</p></Link>
+                    <Link className='btn btn-primary' to="/Country-Explorer/collection"><p>My Collection</p></Link>
+                    <Link className='btn btn-primary' to="/Country-Explorer/quiz"><p>Quiz</p></Link>
+                    <Link className='btn btn-primary' to="/Country-Explorer/leaderboard"><p>Leaderboard</p></Link>
                 </nav>
             </article>
         </section>
