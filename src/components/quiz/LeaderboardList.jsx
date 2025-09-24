@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux"
 import Leaderboard from "./leaderboard.jsx";
-import ReturnBtn from "../buttons/ReturnBtn.jsx";
 const LeaderboardList = () => {
     const { regions } = useSelector(state => state.region);
     const { region } = useSelector(state => state.quiz);
