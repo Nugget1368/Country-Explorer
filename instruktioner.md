@@ -167,3 +167,4 @@ För varje deltagare ska minst följande visas:
 - [x] Behåll countries-state i countryList för att inte behöva ladda om  countries efter att man valt att se mer av ett särskilt. Kolla resetState.
 - [x] Fixa leaderboarden i deployat läge
 - [ ] Mobilanpassning
+- [x] Input-fält på quiz
