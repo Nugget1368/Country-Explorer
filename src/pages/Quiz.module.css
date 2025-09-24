@@ -79,8 +79,8 @@ input:checked + label{
     color: var(--color-surface);
 }
 
-.high-score{
+/* .high-score{
     border: 2px solid var(--color-success-dark) !important;
     color: var(--color-success-dark) !important;
     background-color: pink;
-}
+} */

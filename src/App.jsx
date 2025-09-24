@@ -12,11 +12,11 @@ function App() {
     <Router>
       <Routes>
         <Route path="/Country-Explorer" element={<Home />} />
-        <Route path="/countries" element={<Countries />} />
-        <Route path="/countries/:name" element={<Country />} />
-        <Route path="/collection" element={<Collection />} />
-        <Route path="/quiz" element={<Quiz />} />
-        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/Country-Explorer/countries" element={<Countries />} />
+        <Route path="/Country-Explorer/countries/:name" element={<Country />} />
+        <Route path="/Country-Explorer/collection" element={<Collection />} />
+        <Route path="/Country-Explorer/quiz" element={<Quiz />} />
+        <Route path="/Country-Explorer/leaderboard" element={<Leaderboard />} />
         <Route path="*" element={<h1>404 not found friend....</h1>} />
       </Routes>
     </Router>

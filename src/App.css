@@ -175,6 +175,16 @@ ul {
   justify-content: flex-start;
 }
 
+li {
+  text-align: start;
+  list-style: none;
+  text-decoration: none;
+  list-style-type: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
 .btn:not(a.btn),
 .btn p,
 .material-symbols-outlined {
