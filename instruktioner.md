@@ -168,3 +168,4 @@ För varje deltagare ska minst följande visas:
 - [x] Fixa leaderboarden i deployat läge
 - [ ] Mobilanpassning
 - [x] Input-fält på quiz
+- [x] Wrappa långa textfält.
