@@ -52,3 +52,34 @@ Varje gång du vill göra en uppdatering till din deployade branch så kör du k
 npm run build
 npm run deploy
 ```
+
+# Folders
+
+## :file_folder: Application
+
+- `store.js`. Detta projekt använder sig av **Redux** och det är här vi finner vår *store*.
+
+## :file_folder: Features
+
+- `localstorage` All hantering av localstorage och sessionStorage görs här.
+- `quiz` Här ligger `quizSlice.js` som innehåller alla globala states för *quiz-delen* av applikationen.
+- `region` Här ligger `regionSlice.js` som innehåller alla globala states som hanterar världsdelar, länder och api i applikationen.
+
+## :file_folder: Pages
+
+Alla huvudsidor i applikationen.
+
+- `Home.jsx`, startsidan
+- `Countries.jsx`, sidan för länder
+- `Collection.jsx`, sidan för länder som användaren har sparat.
+- `Country.jsx`, sidan för specifikt land
+- `Quiz.jsx`, sidan för Quizet
+- `Leaderboard.jsx`, sidan för alla tidigare quiz-resultat (topp 5)
+
+## :file_folder: Components
+
+De komponenter som används på sidan.
+
+- `buttons`, tänkt att alla typer av knappar ska ligga här. Just nu finns endast `RestartQuizBtn.jsx` och `ReturnBtn.jsx`
+- `quiz`, alla komponenter som berör quizet
+- `CountryList.jsx`, skriver ut alla länder i en lista
