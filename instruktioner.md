@@ -106,8 +106,6 @@ static saveLeaderboard = ({ userName = "", region = "", score = 0 }) => {
         let playerExists = localRegion.players.find(player => player.userName === userName);
         if (playerExists) {
             playerExists.score = playerExists.score < score ? score : playerExists.score;
-            console.log("Player score: " + playerExists.score);
-            console.log("Score: " + score);
         }
         else {
             localRegion.players.push({ userName, score });

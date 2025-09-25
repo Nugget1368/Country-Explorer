@@ -8,8 +8,7 @@ export const fetchRegion = createAsyncThunk(
                 `https://restcountries.com/v3.1/region/${region}?fields=name,flags`
             );
             return response.json();
-        } catch (error) {
-            console.log(error);
+        } catch {
             return [];
         }
     }
@@ -23,8 +22,7 @@ export const fetchCountry = createAsyncThunk(
                 `https://restcountries.com/v3.1/name/${country}?fields=name,capital,currencies,flags,population,region,maps`
             );
             return response.json();
-        } catch (error) {
-            console.log(error);
+        } catch {
             return null;
         }
     }
@@ -55,7 +53,6 @@ const regionSlice = createSlice({
         },
         removeCountry: (state, action) => {
             state.countries = state.countries.filter(country => country.name.common !== action.payload);
-            console.log(state.countries);
         },
         resetCountry: (state) => {
             state.country = null;
